@@ -1,0 +1,1545 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>StandPoint — Exhibition Stand Design & Production</title>
+
+<template id="__bundler_thumbnail" data-bg-color="#0b0b0c">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0b0b0c"/>
+    <!-- Polygonal mark inspired by the StandPoint logo -->
+    <g transform="translate(600 400)">
+      <path d="M -180 -160 L 140 -200 L 200 -40 L 120 180 L -160 140 L -220 -20 Z"
+            fill="#e8862b" opacity="0.95"/>
+      <path d="M -120 -100 L 80 -130 L 130 -20 L 70 120 L -100 90 L -150 -10 Z"
+            fill="#f5b033" opacity="0.9"/>
+      <path d="M -60 -50 L 30 -65 L 60 -5 L 25 60 L -50 45 L -80 -5 Z"
+            fill="#0b0b0c"/>
+    </g>
+    <text x="600" y="700" text-anchor="middle"
+          font-family="Georgia, serif" font-size="44"
+          font-style="italic" fill="#f3f0ea" opacity="0.7">StandPoint</text>
+  </svg>
+</template>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap">
+
+<style>
+  /* ---------- THEME TOKENS (default = Cinematic Dark) ---------- */
+  :root {
+    --bg:        #0b0b0c;
+    --bg-2:      #121214;
+    --surface:   #16161a;
+    --line:      rgba(255,255,255,0.08);
+    --line-2:    rgba(255,255,255,0.14);
+    --ink:       #f3f0ea;
+    --ink-2:     #b8b3a8;
+    --ink-3:     #6f6a60;
+    --accent:    #e8862b;   /* StandPoint orange */
+    --accent-2:  #f5b033;   /* secondary yellow */
+    --accent-ink:#0b0b0c;
+    --serif:     'Instrument Serif', 'Times New Roman', serif;
+    --sans:      'Space Grotesk', -apple-system, sans-serif;
+    --mono:      'JetBrains Mono', ui-monospace, monospace;
+    --rail:      28px;
+    --maxw:      1440px;
+  }
+
+  /* Editorial Light */
+  [data-theme="light"] {
+    --bg:        #f6f3ec;
+    --bg-2:      #efeae0;
+    --surface:   #ffffff;
+    --line:      rgba(20,18,14,0.10);
+    --line-2:    rgba(20,18,14,0.18);
+    --ink:       #1b1812;
+    --ink-2:     #5a544a;
+    --ink-3:     #8a8479;
+    --accent:    #d97320;
+    --accent-2:  #e8a02a;
+    --accent-ink:#fffaf0;
+  }
+
+  /* Architectural Charcoal */
+  [data-theme="charcoal"] {
+    --bg:        #1a1a1c;
+    --bg-2:      #232326;
+    --surface:   #2a2a2e;
+    --line:      rgba(255,255,255,0.10);
+    --line-2:    rgba(255,255,255,0.20);
+    --ink:       #ffffff;
+    --ink-2:     #c4c0b6;
+    --ink-3:     #807a6e;
+    --accent:    #ff6a1a;
+    --accent-2:  #ffaa2b;
+    --accent-ink:#0b0b0c;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; }
+
+  .wrap {
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 var(--rail);
+  }
+
+  /* ---------- TOP CONTACT BAR ---------- */
+  .topbar {
+    border-bottom: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    background: var(--bg);
+    position: relative;
+    z-index: 5;
+  }
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 38px;
+    gap: 32px;
+  }
+  .topbar-left { display: flex; gap: 28px; align-items: center; }
+  .topbar-right { display: flex; gap: 24px; align-items: center; }
+  .topbar a:hover { color: var(--accent); }
+  .topbar .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); display: inline-block;
+    margin-right: 8px; vertical-align: middle;
+    box-shadow: 0 0 0 0 var(--accent);
+    animation: pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(232,134,43,0.55); }
+    70%  { box-shadow: 0 0 0 8px rgba(232,134,43,0); }
+    100% { box-shadow: 0 0 0 0 rgba(232,134,43,0); }
+  }
+
+  /* ---------- HEADER / LOGO BAR ---------- */
+  .header {
+    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+    position: relative;
+    z-index: 5;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 88px;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 14px;
+    height: 56px;
+  }
+  .logo img { height: 100%; width: auto; display: block; }
+  [data-theme="light"] .logo img { filter: none; }
+  .logo-mark-fallback {
+    width: 44px; height: 56px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    clip-path: polygon(20% 0, 100% 10%, 90% 50%, 100% 100%, 30% 95%, 0 60%);
+  }
+  .nav { display: flex; align-items: center; gap: 36px; }
+  .nav a {
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--ink-2);
+    transition: color .2s;
+  }
+  .nav a:hover { color: var(--ink); }
+  .nav .cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    padding: 12px 20px;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    border-radius: 2px;
+    transition: background .2s, transform .2s;
+  }
+  .nav .cta-btn:hover { background: var(--accent-2); }
+  .nav .cta-btn .arrow { transition: transform .2s; }
+  .nav .cta-btn:hover .arrow { transform: translateX(3px); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    min-height: calc(100vh - 126px);
+    display: grid;
+    grid-template-columns: minmax(420px, 38%) 1fr;
+    background: var(--bg);
+    overflow: hidden;
+  }
+  .hero-text {
+    position: relative;
+    padding: 56px var(--rail) 56px var(--rail);
+    z-index: 3;
+    background: var(--bg);
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 32px;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 32px; height: 1px; background: var(--accent);
+  }
+  .hero-headline {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(48px, 5.4vw, 84px);
+    line-height: 0.96;
+    letter-spacing: -0.02em;
+    margin: 0 0 28px;
+    text-wrap: balance;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-lede {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 38ch;
+    margin: 0 0 36px;
+  }
+  .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    padding: 16px 24px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    border: none;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .btn-primary:hover { background: var(--accent-2); }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 12px;
+    color: var(--ink);
+    padding: 16px 0;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid var(--line-2);
+    transition: border-color .2s, color .2s;
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-meta {
+    margin-top: 48px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .hero-meta .m-num {
+    font-family: var(--serif);
+    font-size: 38px;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .hero-meta .m-num sup {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--accent);
+    margin-left: 2px;
+    top: -0.7em;
+  }
+  .hero-meta .m-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-top: 6px;
+  }
+
+  .hero-video-wrap {
+    position: relative;
+    overflow: hidden;
+    background: #000;
+  }
+  .hero-video-wrap video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-video-overlay {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(11,11,12,0.55) 0%, rgba(11,11,12,0) 30%, rgba(11,11,12,0) 70%, rgba(11,11,12,0.35) 100%),
+      linear-gradient(180deg, rgba(11,11,12,0.25) 0%, rgba(11,11,12,0) 40%, rgba(11,11,12,0.55) 100%);
+    pointer-events: none;
+  }
+  [data-theme="light"] .hero-video-overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.25) 100%);
+  }
+  .hero-video-frame {
+    position: absolute;
+    bottom: 32px; right: 32px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    width: calc(100% - 64px);
+    z-index: 2;
+    pointer-events: none;
+  }
+  .hero-caption {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    max-width: 320px;
+  }
+  .hero-caption .c-title { color: #fff; margin-bottom: 4px; }
+  .hero-caption .c-sub { color: rgba(255,255,255,0.65); }
+  .hero-corner {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    text-align: right;
+  }
+  .hero-corner .c-num {
+    font-family: var(--serif);
+    font-size: 28px;
+    color: #fff;
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .hero-tl-tag {
+    position: absolute;
+    top: 32px; left: 32px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    display: flex; align-items: center; gap: 10px;
+    z-index: 2;
+  }
+  .hero-tl-tag::before {
+    content: ''; width: 8px; height: 8px;
+    background: var(--accent); border-radius: 50%;
+  }
+
+  /* ---------- SECTION COMMON ---------- */
+  section { position: relative; }
+  .section-head {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    padding: 96px 0 56px;
+    border-top: 1px solid var(--line);
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .section-num span { color: var(--accent); }
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    margin: 0;
+    max-width: 22ch;
+  }
+  .section-title em { color: var(--accent); font-style: italic; }
+  .section-intro {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 56ch;
+    margin: 24px 0 0;
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 0;
+  }
+  .service {
+    padding: 56px 40px 48px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    transition: background .25s;
+  }
+  .service:nth-child(2n) { border-right: none; }
+  .service:nth-last-child(-n+2) { border-bottom: none; }
+  .service:hover { background: var(--bg-2); }
+  .service-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    gap: 24px;
+  }
+  .service-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--ink-3);
+  }
+  .service-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 4px 8px;
+    border: 1px solid var(--accent);
+    border-radius: 1px;
+  }
+  .service-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+  }
+  .service-body {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    margin: 0 0 28px;
+    max-width: 48ch;
+  }
+  .service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 8px;
+  }
+  .service-list li {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-2);
+    padding-left: 18px;
+    position: relative;
+  }
+  .service-list li::before {
+    content: '+';
+    position: absolute; left: 0; top: 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* ---------- STATS BAND ---------- */
+  .stats {
+    background: var(--accent);
+    color: var(--accent-ink);
+    padding: 64px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .stats-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: clamp(56px, 6vw, 88px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+  .stat-num sup {
+    font-family: var(--sans);
+    font-size: 0.4em;
+    font-weight: 500;
+    margin-left: 4px;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 12px;
+    opacity: 0.75;
+    max-width: 22ch;
+  }
+
+  /* ---------- PROCESS ---------- */
+  .process {
+    padding-bottom: 96px;
+  }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+  .step {
+    padding: 40px 28px 48px 0;
+    padding-right: 28px;
+    border-right: 1px solid var(--line);
+    position: relative;
+  }
+  .step:last-child { border-right: none; padding-right: 0; }
+  .step:not(:first-child) { padding-left: 28px; }
+  .step-num {
+    font-family: var(--serif);
+    font-size: 64px;
+    line-height: 1;
+    color: var(--accent);
+    margin-bottom: 28px;
+    display: block;
+  }
+  .step-name {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 8px;
+  }
+  .step-title {
+    font-family: var(--serif);
+    font-size: 26px;
+    line-height: 1.1;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+  }
+  .step-body {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0 0 18px;
+  }
+  .step-meta {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.10em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+  .step-meta strong { color: var(--ink); font-weight: 500; }
+
+  /* ---------- PROJECTS ---------- */
+  .projects {
+    padding-bottom: 96px;
+  }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+  .project {
+    position: relative;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .3s ease, border-color .3s ease;
+  }
+  .project:hover { border-color: var(--accent); }
+  .project:hover .p-thumb-inner { transform: scale(1.04); }
+  .project:hover .p-arrow { transform: translate(4px, -4px); }
+  .p-thumb {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #2a2a2e 0%, #1a1a1c 100%);
+  }
+  .p-thumb-inner {
+    position: absolute; inset: 0;
+    transition: transform .6s ease;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .p-meta {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px 24px 24px;
+    gap: 16px;
+  }
+  .p-info { display: flex; flex-direction: column; gap: 4px; }
+  .p-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .p-title {
+    font-family: var(--serif);
+    font-size: 24px;
+    line-height: 1.1;
+    margin: 4px 0 0;
+    letter-spacing: -0.01em;
+  }
+  .p-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+    margin-top: 8px;
+  }
+  .p-arrow {
+    width: 36px; height: 36px;
+    border: 1px solid var(--line-2);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink);
+    transition: transform .3s ease, background .2s, color .2s, border-color .2s;
+    flex-shrink: 0;
+  }
+  .project:hover .p-arrow { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+
+  /* Project sizing — varied editorial grid */
+  .project-1 { grid-column: span 7; }
+  .project-2 { grid-column: span 5; }
+  .project-3 { grid-column: span 5; }
+  .project-4 { grid-column: span 7; }
+  .project-5 { grid-column: span 4; }
+  .project-6 { grid-column: span 4; }
+  .project-7 { grid-column: span 4; }
+
+  /* Pseudo-imagery for project tiles (no real images supplied) */
+  .ph {
+    width: 100%; height: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+  }
+  .ph::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%);
+  }
+  .ph-1 { background:
+    radial-gradient(ellipse at 30% 40%, rgba(232,134,43,0.35), transparent 55%),
+    radial-gradient(ellipse at 80% 70%, rgba(245,176,51,0.2), transparent 50%),
+    linear-gradient(135deg, #1a1a1c 0%, #2c1b10 100%);
+  }
+  .ph-2 { background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 18px),
+    linear-gradient(180deg, #1a1a1c 0%, #0e0e0f 100%);
+  }
+  .ph-3 { background:
+    radial-gradient(circle at 70% 30%, rgba(232,134,43,0.4), transparent 50%),
+    linear-gradient(135deg, #161618 0%, #28160a 100%);
+  }
+  .ph-4 { background:
+    linear-gradient(110deg, #1f1f23 0%, #1a1a1c 50%, #2a1d10 100%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 32px);
+  }
+  .ph-5 { background: linear-gradient(160deg, #2a2a2e 0%, #14140f 100%); }
+  .ph-6 { background:
+    radial-gradient(ellipse at 50% 100%, rgba(245,176,51,0.3), transparent 60%),
+    linear-gradient(180deg, #18181a 0%, #0c0c0d 100%);
+  }
+  .ph-7 { background: linear-gradient(135deg, #1c1c1e 0%, #2c2018 100%); }
+  /* Iso-block stand silhouette inside placeholder */
+  .ph-glyph {
+    position: absolute;
+    left: 50%; top: 55%;
+    transform: translate(-50%, -50%);
+    color: rgba(255,255,255,0.12);
+    width: 42%;
+    z-index: 1;
+  }
+  [data-theme="light"] .project { background: #fff; }
+  [data-theme="light"] .ph-1, [data-theme="light"] .ph-2, [data-theme="light"] .ph-3,
+  [data-theme="light"] .ph-4, [data-theme="light"] .ph-5, [data-theme="light"] .ph-6,
+  [data-theme="light"] .ph-7 {
+    filter: invert(1) hue-rotate(180deg) saturate(0.8) brightness(1.05);
+  }
+
+  /* ---------- LOGOS ---------- */
+  .logos {
+    padding: 64px 0 96px;
+    border-top: 1px solid var(--line);
+  }
+  .logos-head {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 36px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .logos-head::after {
+    content: ''; flex: 1; height: 1px; background: var(--line);
+  }
+  .logos-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .logos-grid .lg {
+    aspect-ratio: 5 / 2;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bg);
+    color: var(--ink-2);
+    font-family: var(--serif);
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    transition: color .2s, background .2s;
+  }
+  .logos-grid .lg.mono { font-family: var(--sans); font-weight: 600; font-size: 16px; letter-spacing: 0.02em; }
+  .logos-grid .lg.italic { font-style: italic; }
+  .logos-grid .lg:hover { color: var(--accent); background: var(--bg-2); }
+
+  /* ---------- AWARDS ---------- */
+  .awards {
+    border-top: 1px solid var(--line);
+    padding: 80px 0 96px;
+  }
+  .awards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 24px;
+  }
+  .award {
+    border-top: 2px solid var(--accent);
+    padding-top: 24px;
+  }
+  .award-year {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--ink-3);
+    margin-bottom: 10px;
+  }
+  .award-title {
+    font-family: var(--serif);
+    font-size: 24px;
+    line-height: 1.15;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .award-body {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 36ch;
+  }
+
+  /* ---------- CONTACT / CTA ---------- */
+  .contact {
+    border-top: 1px solid var(--line);
+    background: var(--bg-2);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .contact-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .contact-eyebrow::before {
+    content: ''; width: 32px; height: 1px; background: var(--accent);
+  }
+  .contact-headline {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(56px, 6.5vw, 96px);
+    line-height: 0.96;
+    letter-spacing: -0.02em;
+    margin: 0 0 32px;
+    text-wrap: balance;
+  }
+  .contact-headline em { font-style: italic; color: var(--accent); }
+  .contact-body {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 50ch;
+    margin: 0 0 40px;
+  }
+  .contact-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 40px;
+  }
+  .cc-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 24px;
+  }
+  .cc-row {
+    display: flex; flex-direction: column;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .cc-row:last-of-type { border-bottom: none; }
+  .cc-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 6px;
+  }
+  .cc-value {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .cc-value.small { font-family: var(--sans); font-size: 15px; line-height: 1.5; }
+  .cc-value a:hover { color: var(--accent); }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+    padding: 40px 0 32px;
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .footer-inner a:hover { color: var(--accent); }
+
+  /* big watermark */
+  .watermark {
+    position: absolute;
+    bottom: -40px; right: -20px;
+    font-family: var(--serif);
+    font-size: 22vw;
+    line-height: 0.8;
+    color: var(--ink);
+    opacity: 0.04;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-text { border-right: none; border-bottom: 1px solid var(--line); padding: 48px var(--rail); }
+    .hero-video-wrap { aspect-ratio: 16 / 10; }
+    .services { grid-template-columns: 1fr; }
+    .service { border-right: none; }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+    .step { border-bottom: 1px solid var(--line); }
+    .step:nth-child(2) { border-right: none; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .projects-grid { grid-template-columns: repeat(6, 1fr); }
+    .project-1, .project-2, .project-3, .project-4 { grid-column: span 6; }
+    .project-5, .project-6, .project-7 { grid-column: span 3; }
+    .logos-grid { grid-template-columns: repeat(3, 1fr); }
+    .awards-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .section-head { grid-template-columns: 1fr; gap: 24px; padding-top: 64px; }
+  }
+  @media (max-width: 640px) {
+    :root { --rail: 20px; }
+    .topbar-left .hide-sm, .topbar-right .hide-sm { display: none; }
+    .nav { gap: 20px; }
+    .nav .hide-sm { display: none; }
+    .header-inner { height: 72px; }
+    .logo { height: 40px; }
+    .hero-text { padding: 36px var(--rail); }
+    .hero-meta { grid-template-columns: 1fr; gap: 16px; }
+    .stats-inner { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-1, .project-2, .project-3, .project-4, .project-5, .project-6, .project-7 { grid-column: span 1; }
+    .logos-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body style="font-family: sans-serif">
+
+<!-- ============== TOP CONTACT BAR ============== -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-left">
+      <span><span class="dot"></span>Booking Q3 / Q4 2026</span>
+      <span class="hide-sm">Studios in Berlin · Dubai · Singapore</span>
+    </div>
+    <div class="topbar-right">
+      <a href="mailto:hello@standpoint-expo.com">hello@standpoint-expo.com</a>
+      <a href="tel:+493017889100" class="hide-sm">+49 30 1788 9100</a>
+      <a href="#contact" class="hide-sm">EN / DE</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============== HEADER ============== -->
+<header class="header">
+  <div class="wrap header-inner">
+    <a href="#" class="logo" aria-label="StandPoint Design &amp; Production">
+      <img src="assets/logo.png" alt="StandPoint" />
+    </a>
+    <nav class="nav">
+      <a href="#services" class="hide-sm">Services</a>
+      <a href="#process" class="hide-sm">Process</a>
+      <a href="#projects" class="hide-sm">Work</a>
+      <a href="#studio" class="hide-sm">Studio</a>
+      <a href="#contact" class="cta-btn">
+        Start a project
+        <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
+        </svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============== HERO ============== -->
+<section class="hero" data-screen-label="01 Hero">
+  <div class="hero-text">
+    <div>
+      <div class="hero-eyebrow">Exhibition Stand Design &amp; Production · Est. 2008</div>
+      <h1 class="hero-headline">
+        Stands that hold <em>their ground</em> on every show floor.
+      </h1>
+      <p class="hero-lede">
+        StandPoint is an engineering-led studio building custom and modular exhibition
+        stands for global brands. From the first sketch to opening day, one team
+        owns the design, the build, and the crew on the ground.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">
+          Start a project
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
+          </svg>
+        </a>
+        <a href="#projects" class="btn-ghost">
+          See selected work
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2 7h10M9 4l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-meta">
+      <div>
+        <div class="m-num">17<sup>+</sup></div>
+        <div class="m-label">Years building stands</div>
+      </div>
+      <div>
+        <div class="m-num">420</div>
+        <div class="m-label">Projects delivered</div>
+      </div>
+      <div>
+        <div class="m-num">38</div>
+        <div class="m-label">Countries shipped to</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-video-wrap">
+    <video autoplay muted loop playsinline poster="">
+      <source src="assets/hero.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-video-overlay"></div>
+    <div class="hero-tl-tag">Live · K7 / Hall 4 · Messe Frankfurt</div>
+    <div class="hero-video-frame">
+      <div class="hero-caption">
+        <div class="c-title">Helios Robotics — Automatica 2025</div>
+        <div class="c-sub">348 m² · custom dual-deck · 6-day build</div>
+      </div>
+      <div class="hero-corner">
+        <span class="c-num">01</span>
+        Featured build
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SERVICES ============== -->
+<div class="wrap" id="services">
+  <div class="section-head" data-screen-label="02 Services">
+    <div class="section-num">01 — <span>What we do</span></div>
+    <div>
+      <h2 class="section-title">A single studio for design, fabrication, and on-site delivery.</h2>
+      <p class="section-intro">
+        We don't broker, sub-contract, or hand off mid-project. Our designers, engineers, and
+        crew chiefs work in the same building — which is why our stands ship on schedule
+        and stand straight on opening morning.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<div class="services">
+  <article class="service">
+    <div class="service-head">
+      <div class="service-num">— 01</div>
+      <div class="service-tag">Custom design</div>
+    </div>
+    <h3 class="service-title">Custom exhibition stand design</h3>
+    <p class="service-body">
+      Architecturally-led stand concepts built around your brand, your product story, and
+      the floor plan you've been given. Every stand is drawn from scratch, structurally
+      engineered in-house, and pressure-tested in 3D before a single panel is cut.
+    </p>
+    <ul class="service-list">
+      <li>Concept design &amp; spatial strategy</li>
+      <li>Structural &amp; load engineering</li>
+      <li>Photoreal 3D walkthroughs</li>
+      <li>Brand &amp; wayfinding integration</li>
+    </ul>
+  </article>
+
+  <article class="service">
+    <div class="service-head">
+      <div class="service-num">— 02</div>
+      <div class="service-tag">Turnkey build</div>
+    </div>
+    <h3 class="service-title">Turnkey production &amp; build</h3>
+    <p class="service-body">
+      A 4,200 m² production hall, in-house joinery, CNC, metalwork, paint, and large-format
+      print. We pre-build every stand on our floor before it ships, so what arrives on the
+      show floor is the third assembly — not the first.
+    </p>
+    <ul class="service-list">
+      <li>CNC, metalwork, paint, glazing</li>
+      <li>Pre-build &amp; client walkthroughs</li>
+      <li>AV, LED &amp; rigging integration</li>
+      <li>Freight, customs &amp; carnet</li>
+    </ul>
+  </article>
+
+  <article class="service">
+    <div class="service-head">
+      <div class="service-num">— 03</div>
+      <div class="service-tag">Modular systems</div>
+    </div>
+    <h3 class="service-title">Modular &amp; reusable systems</h3>
+    <p class="service-body">
+      For brands running 6+ shows a year, we design proprietary modular kits that scale
+      from 24 m² regional stands to 400 m² flagships. Reconfigurable hardware, swap-in
+      graphics, indexed crates — built to last 80+ deployments.
+    </p>
+    <ul class="service-list">
+      <li>Proprietary modular hardware</li>
+      <li>Indexed crating &amp; asset tracking</li>
+      <li>Refresh cycles &amp; graphics rotation</li>
+      <li>Climate-controlled storage</li>
+    </ul>
+  </article>
+
+  <article class="service">
+    <div class="service-head">
+      <div class="service-num">— 04</div>
+      <div class="service-tag">On-site PM</div>
+    </div>
+    <h3 class="service-title">On-site project management</h3>
+    <p class="service-body">
+      A named project lead from kick-off through tear-down, plus a crew chief on the floor
+      from move-in to handover. We work directly with venue ops, health &amp; safety, and
+      your stand staff so you can focus on the show, not the build.
+    </p>
+    <ul class="service-list">
+      <li>Single point of contact, end-to-end</li>
+      <li>Permits, H&amp;S &amp; venue liaison</li>
+      <li>24/7 on-site crew during build</li>
+      <li>Post-show debrief &amp; metrics</li>
+    </ul>
+  </article>
+</div>
+</div>
+
+<!-- ============== STATS ============== -->
+<section class="stats" data-screen-label="03 Stats">
+  <div class="wrap stats-inner">
+    <div>
+      <div class="stat-num">17<sup>yrs</sup></div>
+      <div class="stat-label">Building stands across EMEA, APAC &amp; the Gulf since 2008</div>
+    </div>
+    <div>
+      <div class="stat-num">420</div>
+      <div class="stat-label">Stands delivered, from 18 m² pop-ups to 1,200 m² flagships</div>
+    </div>
+    <div>
+      <div class="stat-num">98<sup>%</sup></div>
+      <div class="stat-label">Stands ready 12 hours before doors — measured, not estimated</div>
+    </div>
+    <div>
+      <div class="stat-num">76<sup>%</sup></div>
+      <div class="stat-label">Of 2025 revenue came from clients on their second build or later</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PROCESS ============== -->
+<div class="wrap process" id="process">
+  <div class="section-head" data-screen-label="04 Process">
+    <div class="section-num">02 — <span>How we work</span></div>
+    <div>
+      <h2 class="section-title">From brief to tear-down, four phases, one team.</h2>
+      <p class="section-intro">
+        Every project moves through the same four phases — sized to the build, but never
+        skipped. Most clients hand us a floor plan and a deadline; we hand back a fully
+        engineered stand, freight-ready, on time.
+      </p>
+    </div>
+  </div>
+
+  <div class="process-grid">
+    <article class="step">
+      <span class="step-num">01</span>
+      <div class="step-name">Phase 01</div>
+      <h3 class="step-title">Brief &amp; concept</h3>
+      <p class="step-body">
+        Two-week sprint with your brand and product leads. We come back with two distinct
+        spatial concepts, a 3D walkthrough, and a fixed-fee build estimate accurate to ±5%.
+      </p>
+      <div class="step-meta"><strong>10–14 days</strong> · 2 concepts · fixed-fee quote</div>
+    </article>
+
+    <article class="step">
+      <span class="step-num">02</span>
+      <div class="step-name">Phase 02</div>
+      <h3 class="step-title">Engineering &amp; sign-off</h3>
+      <p class="step-body">
+        Selected concept goes into structural engineering, AV integration, and venue
+        compliance. You sign off on materials, finishes, and the production schedule
+        before we cut anything.
+      </p>
+      <div class="step-meta"><strong>3–5 weeks</strong> · structural drawings · venue permits</div>
+    </article>
+
+    <article class="step">
+      <span class="step-num">03</span>
+      <div class="step-name">Phase 03</div>
+      <h3 class="step-title">Pre-build &amp; ship</h3>
+      <p class="step-body">
+        Full assembly on our production floor with a client walkthrough. Stand is then
+        crated, indexed, and shipped to the venue with all documentation, freight, and
+        customs handled.
+      </p>
+      <div class="step-meta"><strong>2–4 weeks</strong> · pre-build walkthrough · freight &amp; carnet</div>
+    </article>
+
+    <article class="step">
+      <span class="step-num">04</span>
+      <div class="step-name">Phase 04</div>
+      <h3 class="step-title">Show floor &amp; handover</h3>
+      <p class="step-body">
+        Crew on-site from move-in to tear-down. Daily check-ins with your stand lead, 24/7
+        on-call during the show, full debrief and post-show photography delivered within
+        seven days.
+      </p>
+      <div class="step-meta"><strong>Show duration</strong> · crew chief on-site · 7-day debrief</div>
+    </article>
+  </div>
+</div>
+
+<!-- ============== PROJECTS ============== -->
+<div class="wrap projects" id="projects">
+  <div class="section-head" data-screen-label="05 Projects">
+    <div class="section-num">03 — <span>Selected work</span></div>
+    <div>
+      <h2 class="section-title">A small sample. Ask for the case books.</h2>
+      <p class="section-intro">
+        Seven projects from the last 18 months — from a 1,200 m² flagship at IAA to a
+        modular kit now on its eleventh deployment. The full case books include floor
+        plans, build photography, and post-show metrics.
+      </p>
+    </div>
+  </div>
+
+  <div class="projects-grid">
+    <a class="project project-1" href="#">
+      <div class="p-thumb"><div class="p-thumb-inner"><div class="ph ph-1">
+        <svg class="ph-glyph" viewBox="0 0 200 120" fill="none">
+          <path d="M20 100 L20 40 L60 30 L60 90 Z M60 90 L60 30 L140 30 L140 90 Z M140 90 L140 30 L180 40 L180 100 Z" fill="currentColor"/>
+        </svg>
+      </div></div></div>
+      <div class="p-meta">
+        <div class="p-info">
+          <span class="p-tag">Automotive · IAA Mobility</span>
+          <h3 class="p-title">Vorwald — The Driving Mind</h3>
+          <span class="p-sub">München · 1,200 m² · 9-day build · 2025</span>
+        </div>
+        <span class="p-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M3 11L11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.4"/>
+          </svg>
+        </span>
+      </div>
+    </a>
+
+    <a class="project project-2" href="#">
+      <div class="p-thumb"><div class="p-thumb-inner"><div class="ph ph-2">
+        <svg class="ph-glyph" viewBox="0 0 200 120" fill="none">
+          <rect x="40" y="30" width="120" height="60" stroke="currentColor" stroke-width="2" fill="none"/>
+          <path d="M40 30 L100 10 L160 30 M100 10 V90" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </div></div></div>
+      <div class="p-meta">
+        <div class="p-info">
+          <span class="p-tag">Industrial · Hannover Messe</span>
+          <h3 class="p-title">Helios Robotics</h3>
+          <span class="p-sub">Hannover · 348 m² · dual-deck · 2025</span>
+        </div>
+        <span class="p-arrow"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M3 11L11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></span>
+      </div>
+    </a>
+
+    <a class="project project-3" href="#">
+      <div class="p-thumb"><div class="p-thumb-inner"><div class="ph ph-3">
+        <svg class="ph-glyph" viewBox="0 0 200 120" fill="none">
+          <circle cx="100" cy="60" r="40" stroke="currentColor" stroke-width="2" fill="none"/>
+          <circle cx="100" cy="60" r="20" stroke="currentColor" stroke-width="2" fill="none"/>
+          <line x1="40" y1="100" x2="160" y2="100" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </div></div></div>
+      <div class="p-meta">
+        <div class="p-info">
+          <span class="p-tag">Pharma · CPHI</span>
+          <h3 class="p-title">Northwell Biosciences</h3>
+          <span class="p-sub">Frankfurt · 220 m² · curved glass · 2025</span>
+        </div>
+        <span class="p-arrow"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M3 11L11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></span>
+      </div>
+    </a>
+
+    <a class="project project-4" href="#">
+      <div class="p-thumb"><div class="p-thumb-inner"><div class="ph ph-4">
+        <svg class="ph-glyph" viewBox="0 0 200 120" fill="none">
+          <path d="M20 90 L60 50 L100 90 L140 50 L180 90" stroke="currentColor" stroke-width="2" fill="none"/>
+          <line x1="20" y1="100" x2="180" y2="100" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </div></div></div>
+      <div class="p-meta">
+        <div class="p-info">
+          <span class="p-tag">Consumer Tech · IFA</span>
+          <h3 class="p-title">Lumen Audio — Field of Sound</h3>
+          <span class="p-sub">Berlin · 580 m² · suspended canopy · 2024</span>
+        </div>
+        <span class="p-arrow"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M3 11L11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></span>
+      </div>
+    </a>
+
+    <a class="project project-5" href="#">
+      <div class="p-thumb"><div class="p-thumb-inner"><div class="ph ph-5">
+        <svg class="ph-glyph" viewBox="0 0 200 120" fill="none">
+          <rect x="60" y="20" width="80" height="80" stroke="currentColor" stroke-width="2" fill="none"/>
+          <rect x="80" y="40" width="40" height="40" stroke="currentColor" stroke-width="2" fill="none"/>
+        </svg>
+      </div></div></div>
+      <div class="p-meta">
+        <div class="p-info">
+          <span class="p-tag">Aerospace · Dubai Airshow</span>
+          <h3 class="p-title">Skyline Defence</h3>
+          <span class="p-sub">Dubai · 740 m² · 2024</span>
+        </div>
+        <span class="p-arrow"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M3 11L11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></span>
+      </div>
+    </a>
+
+    <a class="project project-6" href="#">
+      <div class="p-thumb"><div class="p-thumb-inner"><div class="ph ph-6">
+        <svg class="ph-glyph" viewBox="0 0 200 120" fill="none">
+          <path d="M30 90 L100 30 L170 90 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+          <line x1="30" y1="90" x2="170" y2="90" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </div></div></div>
+      <div class="p-meta">
+        <div class="p-info">
+          <span class="p-tag">Modular kit · 11 deployments</span>
+          <h3 class="p-title">Kessler &amp; Voss — System K</h3>
+          <span class="p-sub">EMEA tour · 24–96 m² configurations · 2023→</span>
+        </div>
+        <span class="p-arrow"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M3 11L11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></span>
+      </div>
+    </a>
+
+    <a class="project project-7" href="#">
+      <div class="p-thumb"><div class="p-thumb-inner"><div class="ph ph-7">
+        <svg class="ph-glyph" viewBox="0 0 200 120" fill="none">
+          <line x1="20" y1="100" x2="180" y2="100" stroke="currentColor" stroke-width="2"/>
+          <line x1="40" y1="100" x2="40" y2="40" stroke="currentColor" stroke-width="2"/>
+          <line x1="100" y1="100" x2="100" y2="20" stroke="currentColor" stroke-width="2"/>
+          <line x1="160" y1="100" x2="160" y2="40" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </div></div></div>
+      <div class="p-meta">
+        <div class="p-info">
+          <span class="p-tag">Energy · ADIPEC</span>
+          <h3 class="p-title">Meridian Energy Group</h3>
+          <span class="p-sub">Abu Dhabi · 920 m² · 2024</span>
+        </div>
+        <span class="p-arrow"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M3 11L11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ============== CLIENT LOGOS ============== -->
+<div class="wrap" id="studio">
+<section class="logos">
+  <div class="logos-head">Trusted by brands shipping to global show floors · 2008–2026</div>
+  <div class="logos-grid">
+    <div class="lg">Vorwald</div>
+    <div class="lg italic">Helios</div>
+    <div class="lg mono">NORTHWELL</div>
+    <div class="lg">Lumen</div>
+    <div class="lg mono">SKYLINE</div>
+    <div class="lg italic">Kessler &amp; Voss</div>
+    <div class="lg">Meridian</div>
+    <div class="lg mono">ATRIUM</div>
+    <div class="lg italic">Arden Pharma</div>
+    <div class="lg">Vantage</div>
+    <div class="lg mono">FORGE/CO</div>
+    <div class="lg italic">Hauser Werk</div>
+  </div>
+</section>
+</div>
+
+<!-- ============== AWARDS ============== -->
+<div class="wrap">
+<section class="awards">
+  <div class="section-head" style="border-top: none; padding-top: 0;" data-screen-label="06 Recognition">
+    <div class="section-num">04 — <span>Recognition</span></div>
+    <div>
+      <h2 class="section-title">Quietly collecting trophies on behalf of our clients.</h2>
+    </div>
+  </div>
+  <div class="awards-grid">
+    <div class="award">
+      <div class="award-year">2025 · EuroShop Reddot</div>
+      <h3 class="award-title">Best Stand Design — Industrial</h3>
+      <p class="award-body">Awarded for the Helios Robotics dual-deck build at Hannover Messe — the jury cited "structural ambition matched by manufacturing precision."</p>
+    </div>
+    <div class="award">
+      <div class="award-year">2024 · FAMAB ADAM</div>
+      <h3 class="award-title">Gold — Sustainable Architecture</h3>
+      <p class="award-body">For System K, the modular hardware platform now on its eleventh redeployment with zero structural panels written off across three years.</p>
+    </div>
+    <div class="award">
+      <div class="award-year">2024 · Exhibitor Magazine</div>
+      <h3 class="award-title">Top 40 Stand Builders Worldwide</h3>
+      <p class="award-body">Listed for the third consecutive year — one of seven European firms named, and the only one led entirely by in-house design and engineering.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ============== CONTACT ============== -->
+<section class="contact" id="contact" data-screen-label="07 Contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="contact-eyebrow">Start a project</div>
+      <h2 class="contact-headline">
+        Send a floor plan and a date. <em>We'll send back a stand.</em>
+      </h2>
+      <p class="contact-body">
+        Most projects begin with a floor plan, a show date, and a one-paragraph brief.
+        Within five working days you'll have two concept directions, a 3D walkthrough, and
+        a fixed-fee build quote. No retainers, no agency mark-ups, no surprises in week six.
+      </p>
+      <div class="contact-actions">
+        <a href="mailto:projects@standpoint-expo.com" class="btn-primary">
+          Email the studio
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
+          </svg>
+        </a>
+        <a href="#" class="btn-ghost">
+          Download capabilities deck (PDF)
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v9M3 7l4 4 4-4M2 13h10" stroke="currentColor" stroke-width="1.4"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <aside class="contact-card">
+      <div class="cc-title">Studios &amp; contact</div>
+      <div class="cc-row">
+        <div class="cc-label">Berlin · HQ &amp; production</div>
+        <div class="cc-value small">Wilhelminenhofstraße 76, 12459 Berlin · Germany</div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-label">Dubai · Gulf operations</div>
+        <div class="cc-value small">Office 1402, JBC 4, Cluster N, JLT · UAE</div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-label">Singapore · APAC</div>
+        <div class="cc-value small">71 Robinson Road, #14-01 · Singapore 068895</div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-label">Direct</div>
+        <div class="cc-value"><a href="mailto:hello@standpoint-expo.com">hello@standpoint-expo.com</a></div>
+      </div>
+      <div class="cc-row">
+        <div class="cc-label">Phone (CET, 09:00–19:00)</div>
+        <div class="cc-value"><a href="tel:+493017889100">+49 30 1788 9100</a></div>
+      </div>
+    </aside>
+  </div>
+  <div class="watermark">SP</div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  <div class="wrap footer-inner">
+    <div>© 2008–2026 StandPoint Design &amp; Production GmbH · HRB 142 887 B</div>
+    <div style="display:flex; gap:24px;">
+      <a href="#">Imprint</a>
+      <a href="#">Privacy</a>
+      <a href="#">Careers (3 open)</a>
+      <a href="#">Press kit</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============== TWEAKS ============== -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+
+<div id="tweaks-root"></div>
+<script type="text/babel">
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "theme": "dark",
+    "videoMuted": true,
+    "videoPlaying": true,
+    "showWatermark": true
+  }/*EDITMODE-END*/;
+
+  function TweaksApp() {
+    const [t, setTweak] = window.useTweaks(TWEAK_DEFAULTS);
+
+    React.useEffect(() => {
+      document.documentElement.dataset.theme = t.theme;
+    }, [t.theme]);
+
+    React.useEffect(() => {
+      const v = document.querySelector('.hero-video-wrap video');
+      if (!v) return;
+      v.muted = t.videoMuted;
+      if (t.videoPlaying) v.play().catch(()=>{}); else v.pause();
+    }, [t.videoMuted, t.videoPlaying]);
+
+    React.useEffect(() => {
+      const w = document.querySelector('.watermark');
+      if (w) w.style.display = t.showWatermark ? '' : 'none';
+    }, [t.showWatermark]);
+
+    const { TweaksPanel, TweakSection, TweakRadio, TweakToggle } = window;
+    return (
+      <TweaksPanel title="Tweaks">
+        <TweakSection label="Aesthetic direction">
+          <TweakRadio
+            label="Theme"
+            value={t.theme}
+            onChange={(v) => setTweak('theme', v)}
+            options={[
+              { value: 'dark',     label: 'Cinema' },
+              { value: 'light',    label: 'Editor' },
+              { value: 'charcoal', label: 'Archit' },
+            ]}
+          />
+        </TweakSection>
+        <TweakSection label="Hero video">
+          <TweakToggle
+            label="Playing"
+            value={t.videoPlaying}
+            onChange={(v) => setTweak('videoPlaying', v)}
+          />
+          <TweakToggle
+            label="Muted"
+            value={t.videoMuted}
+            onChange={(v) => setTweak('videoMuted', v)}
+          />
+        </TweakSection>
+        <TweakSection label="Details">
+          <TweakToggle
+            label="SP watermark"
+            value={t.showWatermark}
+            onChange={(v) => setTweak('showWatermark', v)}
+          />
+        </TweakSection>
+      </TweaksPanel>
+    );
+  }
+
+  const root = ReactDOM.createRoot(document.getElementById('tweaks-root'));
+  root.render(<TweaksApp />);
+</script>
+
+</body>
+</html>

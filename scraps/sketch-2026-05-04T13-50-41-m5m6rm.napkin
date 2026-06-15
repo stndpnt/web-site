@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "created": "2026-05-04T13:50:41.391Z",
+  "modified": "2026-05-05T16:18:41.106Z",
+  "objects": [
+    {
+      "id": "6nm625yoo",
+      "type": "rect",
+      "x": 53,
+      "y": 119,
+      "width": 1631,
+      "height": 1007,
+      "data": {
+        "fill": null,
+        "stroke": "#8B2500",
+        "strokeWidth": 2
+      }
+    },
+    {
+      "id": "h614drcun",
+      "type": "rect",
+      "x": 73,
+      "y": 157,
+      "width": 1596,
+      "height": 93,
+      "data": {
+        "fill": null,
+        "stroke": "#C2622D",
+        "strokeWidth": 2
+      }
+    },
+    {
+      "id": "lzqhj6w90",
+      "type": "rect",
+      "x": 89,
+      "y": 284,
+      "width": 567,
+      "height": 757,
+      "data": {
+        "fill": null,
+        "stroke": "#3D7C2F",
+        "strokeWidth": 2
+      }
+    },
+    {
+      "id": "0jcoy4bkl",
+      "type": "text",
+      "x": 123,
+      "y": 201,
+      "data": {
+        "content": "logo",
+        "fontSize": 16,
+        "color": "#3D7C2F",
+        "bold": false
+      },
+      "width": 32,
+      "height": 21
+    },
+    {
+      "id": "ny5qlhbjz",
+      "type": "text",
+      "x": 228,
+      "y": 389,
+      "data": {
+        "content": "Text",
+        "fontSize": 16,
+        "color": "#3D7C2F",
+        "bold": false
+      },
+      "width": 31,
+      "height": 21
+    },
+    {
+      "id": "yveoq1a6i",
+      "type": "text",
+      "x": 1029,
+      "y": 540,
+      "data": {
+        "content": "video background",
+        "fontSize": 16,
+        "color": "#3D7C2F",
+        "bold": false
+      },
+      "width": 131,
+      "height": 21
+    },
+    {
+      "id": "f9vcz6okw",
+      "type": "text",
+      "x": 264.04199915530796,
+      "y": 193.8962304430331,
+      "data": {
+        "content": "Custom Stands   Group Builds   Portfolio   Process   About   [Request a Proposal",
+        "fontSize": 16,
+        "color": "#8B2500",
+        "bold": false
+      },
+      "width": 686.5097600000809,
+      "height": 21
+    }
+  ]
+}
