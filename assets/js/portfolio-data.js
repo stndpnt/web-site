@@ -206,6 +206,246 @@ const portfolioProjects = [
     folder: "assets/portfolio/custom/18-interior-mebel-2016",
     imageCount: 11
   },
+  {
+    id: "eurovision-2017-standpoint",
+    title: "Eurovision Song Contest",
+    exhibition: "Kyiv 2017",
+    category: "custom",
+    folder: "assets/portfolio/custom/19-eurovision-2017-standpoint",
+    imageCount: 17
+  },
+  {
+    id: "tetmed-public-health-dental",
+    title: "Tetmed",
+    exhibition: "Public Health / Dental",
+    category: "custom",
+    folder: "assets/portfolio/custom/20-tetmed-public-health-dental",
+    imageCount: 2
+  },
+  {
+    id: "summands-intersharm",
+    title: "Summands",
+    exhibition: "Intersharm",
+    category: "custom",
+    folder: "assets/portfolio/custom/21-summands-intersharm",
+    imageCount: 2
+  },
+  {
+    id: "pastel-intersharm",
+    title: "Pastel Cosmetics",
+    exhibition: "Intersharm",
+    category: "custom",
+    folder: "assets/portfolio/custom/22-pastel-intersharm",
+    imageCount: 1
+  },
+  {
+    id: "multicolor-intersharm",
+    title: "Multicolor",
+    exhibition: "Intersharm",
+    category: "custom",
+    folder: "assets/portfolio/custom/23-multicolor-intersharm",
+    imageCount: 2
+  },
+  {
+    id: "malevich-intersharm",
+    title: "Malevich",
+    exhibition: "Intersharm",
+    category: "custom",
+    folder: "assets/portfolio/custom/24-malevich-intersharm",
+    imageCount: 2
+  },
+  {
+    id: "macro-intersharm",
+    title: "macrO",
+    exhibition: "Intersharm",
+    category: "custom",
+    folder: "assets/portfolio/custom/25-macro-intersharm",
+    imageCount: 2
+  },
+  {
+    id: "kvkv-intersharm",
+    title: "krkr",
+    exhibition: "Intersharm",
+    category: "custom",
+    folder: "assets/portfolio/custom/26-kvkv-intersharm",
+    imageCount: 1
+  },
+  {
+    id: "gemely-intersharm",
+    title: "Gémely",
+    exhibition: "Intersharm",
+    category: "custom",
+    folder: "assets/portfolio/custom/27-gemely-intersharm",
+    imageCount: 5
+  },
+  {
+    id: "edlen-intersharm",
+    title: "Edlen Professional",
+    exhibition: "Intersharm",
+    category: "custom",
+    folder: "assets/portfolio/custom/28-edlen-intersharm",
+    imageCount: 2
+  },
+  {
+    id: "cef-lab-intersharm",
+    title: "CEF Lab",
+    exhibition: "Intersharm",
+    category: "custom",
+    folder: "assets/portfolio/custom/29-cef-lab-intersharm",
+    imageCount: 2
+  },
+  {
+    id: "pounds-worldfood",
+    title: "32 Pounds",
+    exhibition: "WorldFood Ukraine",
+    category: "custom",
+    folder: "assets/portfolio/custom/30-pounds-worldfood",
+    imageCount: 1
+  },
+  {
+    id: "ksenko-public-health-dental",
+    title: "\u041a\u0441\u0435\u043d\u043a\u043e",
+    exhibition: "Public Health / Dental",
+    category: "custom",
+    folder: "assets/portfolio/custom/31-ksenko-public-health-dental",
+    imageCount: 1
+  },
+  {
+    id: "barilla-worldfood",
+    title: "Barilla",
+    exhibition: "WorldFood Ukraine",
+    category: "custom",
+    folder: "assets/portfolio/custom/32-barilla-worldfood",
+    imageCount: 1
+  },
+  {
+    id: "empirica-public-health-dental",
+    title: "Empirica Medical Company",
+    exhibition: "Public Health / Dental",
+    category: "custom",
+    folder: "assets/portfolio/custom/33-empirica-public-health-dental",
+    imageCount: 1
+  },
+  {
+    id: "flow-of-beauty-intersharm",
+    title: "Flow of Beauty",
+    exhibition: "Intersharm",
+    category: "custom",
+    folder: "assets/portfolio/custom/34-flow-of-beauty-intersharm",
+    imageCount: 1
+  },
+  {
+    id: "forvarmed-public-health-dental",
+    title: "Forvardmed",
+    exhibition: "Public Health / Dental",
+    category: "custom",
+    folder: "assets/portfolio/custom/35-forvarmed-public-health-dental",
+    imageCount: 1
+  },
+  {
+    id: "hadewe-intersharm",
+    title: "Hadewe",
+    exhibition: "Intersharm",
+    category: "custom",
+    folder: "assets/portfolio/custom/36-hadewe-intersharm",
+    imageCount: 1
+  },
+  {
+    id: "hedonic-intersharm",
+    title: "Hedonic",
+    exhibition: "Intersharm",
+    category: "custom",
+    folder: "assets/portfolio/custom/37-hedonic-intersharm",
+    imageCount: 1
+  },
+  {
+    id: "marvis-intersharm",
+    title: "Marvis",
+    exhibition: "Intersharm",
+    category: "custom",
+    folder: "assets/portfolio/custom/38-marvis-intersharm",
+    imageCount: 1
+  },
+  {
+    id: "nct-public-health-dental",
+    title: "NCT",
+    exhibition: "Public Health / Dental",
+    category: "custom",
+    folder: "assets/portfolio/custom/39-nct-public-health-dental",
+    imageCount: 1
+  },
+  {
+    id: "prorasu-intersharm",
+    title: "Proraso",
+    exhibition: "Intersharm",
+    category: "custom",
+    folder: "assets/portfolio/custom/40-prorasu-intersharm",
+    imageCount: 1
+  },
+  {
+    id: "smart-4-derma-intersharm",
+    title: "Smart 4 Derma",
+    exhibition: "Intersharm",
+    category: "custom",
+    folder: "assets/portfolio/custom/41-smart-4-derma-intersharm",
+    imageCount: 1
+  },
+  {
+    id: "you-are-cute-intersharm",
+    title: "You Are Cute",
+    exhibition: "Intersharm",
+    category: "custom",
+    folder: "assets/portfolio/custom/43-you-are-cute-intersharm",
+    imageCount: 1
+  },
+  {
+    id: "karcher-standpoint",
+    title: "K\u00e4rcher",
+    exhibition: "StandPoint",
+    category: "custom",
+    folder: "assets/portfolio/custom/44-karcher-standpoint",
+    imageCount: 4
+  },
+  {
+    id: "kinderclub-standpoint",
+    title: "Kinder Club",
+    exhibition: "StandPoint",
+    category: "custom",
+    folder: "assets/portfolio/custom/45-kinderclub-standpoint",
+    imageCount: 3
+  },
+  {
+    id: "kollerpool-standpoint",
+    title: "Koller Pool",
+    exhibition: "StandPoint",
+    category: "custom",
+    folder: "assets/portfolio/custom/46-kollerpool-standpoint",
+    imageCount: 10
+  },
+  {
+    id: "korf-standpoint",
+    title: "Korf",
+    exhibition: "StandPoint",
+    category: "custom",
+    folder: "assets/portfolio/custom/47-korf-standpoint",
+    imageCount: 3
+  },
+  {
+    id: "greece-standpoint",
+    title: "Greece",
+    exhibition: "StandPoint",
+    category: "custom",
+    folder: "assets/portfolio/custom/48-greece-standpoint",
+    imageCount: 3
+  },
+  {
+    id: "georgia-standpoint",
+    title: "Georgia",
+    exhibition: "StandPoint",
+    category: "custom",
+    folder: "assets/portfolio/custom/49-georgia-standpoint",
+    imageCount: 1
+  },
 
   /* ===========================  GROUP BUILDS  ===========================
      These six folders already contain real photos on disk. Rename the folders
