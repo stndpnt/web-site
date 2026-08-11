@@ -519,7 +519,12 @@ const homepageCustomIds = [
    Add Group Build ids here when you're ready to feature them on the homepage.
 ============================================================================ */
 const homepageGroupBuildIds = [
-  // e.g. "group-build-01", "group-build-02", ...
+  "group-build-01",
+  "group-build-02",
+  "group-build-03",
+  "group-build-04",
+  "group-build-05",
+  "group-build-06"
 ];
 
 /* ============================================================================

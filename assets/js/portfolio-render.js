@@ -132,9 +132,13 @@
     });
   });
 
-  // Default filter = whichever button starts aria-pressed="true" in the markup.
-  var def = (filters.filter(function (b) { return b.getAttribute("aria-pressed") === "true"; })[0]
+  // Default filter = whichever button starts aria-pressed="true" in the markup,
+  // unless the URL requests one (e.g. portfolio.html#filter=group).
+  var hashMatch = /filter=([a-z-]+)/.exec(location.hash || "");
+  var wanted = hashMatch && filters.filter(function (b) { return b.dataset.filter === hashMatch[1]; })[0];
+  var def = wanted || (filters.filter(function (b) { return b.getAttribute("aria-pressed") === "true"; })[0]
             || filters[0]);
+  if (wanted) filters.forEach(function (b) { b.setAttribute("aria-pressed", b === wanted ? "true" : "false"); });
   applyFilter(def ? def.dataset.filter : "all");
 
   // ---------- Lightbox ----------
