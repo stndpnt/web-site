@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Exhibition Stand FAQ | Design, Production &amp; Installation | StandPoint</title>
+<meta name="description" content="Answers to common questions about exhibition stand design, production, logistics, installation, costs and working with StandPoint across Europe." />
+<link rel="canonical" href="/faq/" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    --bg: #0e0e0e; --bg-2: #141414; --surface: #141414;
+    --line: rgba(255,255,255,0.08); --line-2: rgba(255,255,255,0.14);
+    --ink: #f3f0ea; --ink-2: #a9a49a; --ink-3: #6f6a60;
+    --accent: #F29311; --accent-2: #f5b033; --accent-ink: #0b0b0c;
+    --header-bg: #050505; --header-line: rgba(255,255,255,0.08);
+    --header-ink-2: rgba(235,234,230,0.82);
+    --serif: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --rail: 28px; --maxw: 1440px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--accent); }
+  button { font-family: inherit; }
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--rail); }
+
+  /* ---------- TOP BAR ---------- */
+  .topbar { border-bottom: 1px solid var(--header-line); font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--header-ink-2); background: var(--header-bg); }
+  .topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 38px; gap: 32px; }
+  .topbar-left { display: flex; gap: 28px; align-items: center; }
+  .topbar-right { display: flex; gap: 24px; align-items: center; }
+  .topbar a:hover { color: var(--accent); }
+  .topbar .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; margin-right: 8px; vertical-align: middle; }
+
+  /* ---------- HEADER ---------- */
+  .header { border-bottom: 1px solid var(--header-line); background: var(--header-bg); position: relative; z-index: 5; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 104px; }
+  .logo { display: flex; align-items: center; gap: 14px; height: 81px; }
+  .logo img { height: 100%; width: auto; display: block; }
+  .nav { display: flex; align-items: center; gap: 36px; }
+  .nav a { font-size: 14.5px; letter-spacing: 0.01em; transition: color .2s; }
+  .nav a:not(.cta-btn) { color: var(--header-ink-2); }
+  .nav a:not(.cta-btn):hover { color: var(--accent); }
+  .nav a.is-active { color: var(--accent); }
+  .nav .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: #0b0b0c; padding: 12px 20px; font-weight: 600; font-size: 13px; letter-spacing: 0.02em; border-radius: 2px; transition: background .2s, transform .2s; }
+  .nav .cta-btn:hover { background: var(--accent-2); color: #0b0b0c; }
+  .nav .cta-btn .arrow { transition: transform .2s; }
+  .nav .cta-btn:hover .arrow { transform: translateX(3px); }
+
+  /* ---------- BUTTONS ---------- */
+  .btn-primary { display: inline-flex; align-items: center; gap: 12px; background: var(--accent); color: #0b0b0c; padding: 16px 24px; font-weight: 600; font-size: 14px; letter-spacing: 0.02em; border: none; cursor: pointer; transition: background .2s; }
+  .btn-primary:hover { background: var(--accent-2); color: #0b0b0c; }
+
+  /* ---------- FAQ HERO ---------- */
+  .faq-hero { padding: 44px 0 40px; background: var(--header-bg); text-align: center; }
+  .faq-hero-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .faq-hero-label::before, .faq-hero-label::after { content: ''; width: 32px; height: 1px; background: var(--accent); }
+  .faq-hero h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.05; letter-spacing: -0.03em; margin: 0 0 14px; color: #f3f0ea; }
+  .faq-hero p { font-size: 16px; line-height: 1.55; color: rgba(243,240,234,0.6); max-width: 680px; margin: 0 auto; }
+
+  /* ---------- FAQ CATEGORY (split dark tones) ---------- */
+  .faq-category { width: 100%; display: grid; grid-template-columns: 26% 1fr; border-top: 1px solid var(--header-line); }
+  .cat-panel { background: var(--header-bg); padding: 52px 28px 52px max(var(--rail), calc((100vw - var(--maxw)) / 2)); display: flex; flex-direction: column; justify-content: center; }
+  .cat-num { font-family: var(--serif); font-weight: 700; font-size: clamp(32px, 2.6vw, 44px); line-height: 1; letter-spacing: -0.02em; color: #f3f0ea; margin-bottom: 12px; }
+  .cat-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .cat-label em { font-style: normal; color: var(--accent); }
+  .content-panel { background: var(--bg); padding: 52px max(var(--rail), calc((100vw - var(--maxw)) / 2)) 52px 48px; }
+  .faq-category:nth-of-type(even) .content-panel { background: var(--bg-2); }
+  .section-title { font-family: var(--serif); font-weight: 700; font-size: clamp(22px, 2vw, 28px); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 20px; color: #f3f0ea; }
+
+  /* ---------- ACCORDION (reusable: .faq-list > details.faq-item) ---------- */
+  .faq-list { max-width: 1050px; }
+  .faq-item { border-top: 1px solid var(--line); }
+  .faq-item:last-child { border-bottom: 1px solid var(--line); }
+  .faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0; font-family: var(--serif); font-weight: 600; font-size: 17px; line-height: 1.4; color: #ece9e2; transition: color .2s; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary:hover { color: #fff; }
+  .faq-item summary:hover .faq-icon::before, .faq-item summary:hover .faq-icon::after { background: var(--accent); }
+  .faq-icon { flex: none; width: 22px; height: 22px; position: relative; }
+  .faq-icon::before, .faq-icon::after { content: ''; position: absolute; top: 50%; left: 50%; background: var(--ink-3); transition: transform .2s, background .2s; }
+  .faq-icon::before { width: 12px; height: 1.5px; transform: translate(-50%,-50%); }
+  .faq-icon::after { width: 1.5px; height: 12px; transform: translate(-50%,-50%); }
+  .faq-item[open] .faq-icon::after { transform: translate(-50%,-50%) scaleY(0); }
+  .faq-item[open] .faq-icon::before, .faq-item[open] .faq-icon::after { background: var(--accent); }
+  .faq-item[open] summary { color: #fff; }
+  .faq-a { padding: 0 0 26px 20px; max-width: 66ch; border-left: 1px solid var(--accent); margin-left: 1px; }
+  .faq-a p { font-size: 15px; line-height: 1.7; color: var(--ink-2); margin: 0 0 14px; }
+  .faq-a p:last-child { margin-bottom: 0; }
+  .faq-links { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 4px; }
+  .faq-links a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #ece9e2; display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border: 1px solid var(--line-2); transition: border-color .2s, color .2s; }
+  .faq-links a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ---------- FINAL CTA ---------- */
+  .faq-cta { padding: 88px 0 96px; text-align: center; }
+  .faq-cta-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+  .faq-cta h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(32px, 3.6vw, 48px); letter-spacing: -0.03em; margin: 0 auto 20px; max-width: 18ch; color: var(--ink); }
+  .faq-cta p { font-size: 17px; line-height: 1.55; color: var(--ink-2); max-width: 56ch; margin: 0 auto 36px; }
+
+  /* ---------- FOOTER ---------- */
+  footer { background: var(--header-bg); border-top: 1px solid var(--header-line); padding: 40px 0 32px; }
+  .footer-inner { display: grid; grid-template-columns: 1.4fr 1fr 1.2fr; align-items: start; gap: 32px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--ink-3); }
+  .footer-left { line-height: 1.7; }
+  .footer-left .ln-2 { color: var(--ink-2); }
+  .footer-nav { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+  .footer-right { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; text-align: right; line-height: 1.7; }
+  .footer-right a { color: var(--ink-2); }
+
+  @media (max-width: 900px) {
+    .footer-inner { grid-template-columns: 1fr; text-align: left; }
+    .footer-nav { justify-content: flex-start; }
+    .footer-right { text-align: left; align-items: flex-start; }
+  }
+  @media (max-width: 1024px) {
+    .faq-category { grid-template-columns: 1fr; }
+    .cat-panel { padding: 32px var(--rail) 24px; }
+    .content-panel { padding: 32px var(--rail) 44px; }
+  }
+  @media (max-width: 640px) {
+    :root { --rail: 20px; }
+    .topbar-left .hide-sm, .topbar-right .hide-sm { display: none; }
+    .nav { gap: 20px; }
+    .nav .hide-sm { display: none; }
+    .header-inner { height: 84px; }
+    .logo { height: 50px; }
+    .faq-hero { padding: 56px 0 40px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="topbar-left"><span><span class="dot"></span>Exhibition stand design &amp; build · Europe / Ukraine</span></div>
+    <div class="topbar-right">
+      <a href="mailto:our.team@standpoint-expo.com">our.team@standpoint-expo.com</a>
+      <a href="tel:+380952011149" class="hide-sm">+38 (095) 20-111-49</a>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="wrap header-inner">
+    <a href="../index.html" class="logo" aria-label="StandPoint Design &amp; Production">
+      <img src="../assets/logo.png" alt="StandPoint" />
+    </a>
+    <nav class="nav">
+      <a href="../index.html#custom-stands" class="hide-sm">Custom Stands</a>
+      <a href="../black-point.html" class="hide-sm">Group Stands</a>
+      <a href="../portfolio.html" class="hide-sm">Portfolio</a>
+      <a href="../index.html#process" class="hide-sm">How We Work</a>
+      <a href="index.html" class="hide-sm is-active" aria-current="page">FAQ</a>
+      <a href="../index.html#contact" class="cta-btn" data-open-stand-form>
+        Start a project
+        <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<section class="faq-hero" data-screen-label="01 Hero">
+  <div class="wrap">
+    <div class="faq-hero-label">FAQ</div>
+    <h1>Exhibition Stand FAQ</h1>
+    <p>Practical answers about exhibition stand design, production, logistics and installation — and what to expect when working with StandPoint.</p>
+  </div>
+</section>
+
+<section class="faq-category" data-screen-label="02 Planning your stand">
+  <div class="cat-panel">
+    <div class="cat-num">01</div>
+    <div class="cat-label">Planning your stand</div>
+  </div>
+  <div class="content-panel">
+    <h2 class="section-title">Getting started</h2>
+    <div class="faq-list">
+    <details class="faq-item">
+      <summary><span>How early should we start planning our exhibition stand?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>The earlier the better, especially for larger or technically complex stands. The required lead time depends on the stand size, design complexity, exhibition schedule and venue requirements.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary><span>What information do you need to start?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>Ideally, we need the exhibition name and dates, stand size and floor plan, your objectives, functional requirements, brand materials and any references you would like us to consider.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary><span>Can you prepare a stand design from our brief?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>Yes. We can develop the stand from the initial brief, including layout, design concept, 3D visualisation and technical development.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary><span>Can you work with an existing stand design?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>Yes. If you already have a design from your agency or in-house team, we can review it technically and develop it for production and installation.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary><span>What size custom stands do you usually build?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>Our custom stand projects typically range from approximately 30 to 600 m², depending on the exhibition, location, complexity and schedule.</p></div>
+    </details>
+  </div>
+  </div>
+</section>
+
+<section class="faq-category" data-screen-label="03 Design and production">
+  <div class="cat-panel">
+    <div class="cat-num">02</div>
+    <div class="cat-label">Design &amp; production</div>
+  </div>
+  <div class="content-panel">
+    <h2 class="section-title">From concept to build</h2>
+    <div class="faq-list">
+    <details class="faq-item">
+      <summary><span>What is included in a custom exhibition stand project?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>Depending on the project, the scope can include design, technical development, production, graphics, lighting, AV, furniture, logistics, installation, on-site support and dismantling.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary><span>Do you produce exhibition stands yourselves?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>Yes. StandPoint has its own production capabilities and also works with specialised production partners when a project requires specific materials or technologies. Production is coordinated as part of the complete StandPoint project.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary><span>Do you provide technical drawings and engineering?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>Yes. Technical development is part of the project and includes the drawings, materials, finishes and specifications required to turn the approved design into a buildable stand.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary><span>Can you provide furniture, lighting, graphics and AV?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>Yes. Furniture, graphics, signage, lighting, screens, AV equipment and other stand elements can be included and coordinated within the project.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary><span>Can you integrate products or special equipment into the stand?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>Yes. Product displays, equipment, screens and other project-specific elements can be incorporated into the stand design, provided their technical requirements are known during development.</p></div>
+    </details>
+  </div>
+  </div>
+</section>
+
+<section class="faq-category" data-screen-label="04 Logistics and on-site work">
+  <div class="cat-panel">
+    <div class="cat-num">03</div>
+    <div class="cat-label">Logistics &amp; on-site work</div>
+  </div>
+  <div class="content-panel">
+    <h2 class="section-title">Delivery and installation</h2>
+    <div class="faq-list">
+    <details class="faq-item">
+      <summary><span>Where do you build exhibition stands?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>StandPoint delivers exhibition stand projects for B2B trade fairs across Europe.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary><span>Do you handle venue requirements and technical approvals?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>Yes. We prepare the technical project around the requirements of the relevant exhibition and venue and coordinate the documentation required for the stand build.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary><span>Do you organise transport?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>Yes. Logistics can be coordinated as part of the project, including packing, transport and delivery timing according to the exhibition build-up schedule.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary><span>Do you install and dismantle the stand?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>Yes. Our project scope can include on-site installation, handover and dismantling after the exhibition.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary><span>Is someone from StandPoint available during the exhibition?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>Where required, we can provide on-site support for adjustments and technical issues during the event.</p></div>
+    </details>
+  </div>
+  </div>
+</section>
+
+<section class="faq-category" data-screen-label="05 Choosing the right solution">
+  <div class="cat-panel">
+    <div class="cat-num">04</div>
+    <div class="cat-label">Choosing the right solution</div>
+  </div>
+  <div class="content-panel">
+    <h2 class="section-title">Custom stands or group builds</h2>
+    <div class="faq-list">
+    <details class="faq-item">
+      <summary><span>What is the difference between Custom Stands and Group Stand Construction?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a">
+        <p>Custom Stands are designed individually for one exhibitor and its specific brand, floor space and requirements.</p>
+        <p>Group Stand Construction is intended for organisers, national pavilions and multi-exhibitor areas where multiple stands need to follow one coordinated structural and visual system.</p>
+        <div class="faq-links">
+          <a href="../index.html#custom-stands">Custom Stands</a>
+          <a href="../black-point.html">Explore Group Stands</a>
+        </div>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary><span>Can you build several stands for us at the same exhibition?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>Yes. The appropriate approach depends on the number of stands, their sizes and whether they need individual designs or a shared construction system. Send us the floor plans and requirements and we can recommend the most suitable format.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary><span>Can you work with our agency or in-house design team?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>Yes. We can work directly with your marketing team, exhibition department, design agency or other project partners, depending on how responsibilities are divided.</p></div>
+    </details>
+  </div>
+  </div>
+</section>
+
+<section class="faq-category" data-screen-label="06 Costs and quotation">
+  <div class="cat-panel">
+    <div class="cat-num">05</div>
+    <div class="cat-label">Costs &amp; quotation</div>
+  </div>
+  <div class="content-panel">
+    <h2 class="section-title">Budgeting your project</h2>
+    <div class="faq-list">
+    <details class="faq-item">
+      <summary><span>How much does a custom exhibition stand cost?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>The cost depends on the stand size, design, materials, technical requirements, equipment, exhibition location, logistics and build-up schedule. Once we have the floor plan and project requirements, we can prepare a more meaningful estimate.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary><span>What do you need to prepare a quotation?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>At minimum, send us the exhibition, stand dimensions or floor plan, dates, your main requirements and any available references or brand guidelines. The more information we have at the beginning, the more accurate the proposal can be.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary><span>Do you provide an initial concept?</span><span class="faq-icon"></span></summary>
+      <div class="faq-a"><p>Yes. For suitable projects, we can prepare an initial stand concept so you can evaluate the proposed design direction and project approach before moving forward.</p></div>
+    </details>
+  </div>
+  </div>
+</section>
+
+<section class="faq-cta" id="contact" data-screen-label="07 Final CTA">
+  <div class="wrap">
+    <div class="faq-cta-label">Start a project</div>
+    <h2>Still have a question?</h2>
+    <p>Send us your exhibition, floor plan and requirements. We'll help you understand the best way to approach the project.</p>
+    <a href="#" class="btn-primary" data-open-stand-form>
+      Start a project
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-left">
+      <div>© StandPoint Expo · Since 2008</div>
+      <div class="ln-2">Exhibition stand design &amp; build · Europe / Ukraine</div>
+    </div>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="../index.html#custom-stands">Custom Stands</a>
+      <a href="../black-point.html">Group Stands</a>
+      <a href="../portfolio.html">Portfolio</a>
+      <a href="index.html">FAQ</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <div class="footer-right">
+      <a href="mailto:our.team@standpoint-expo.com">our.team@standpoint-expo.com</a>
+      <a href="tel:+380952011149">+380 95 201 11 49</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/stand-request-modal.js"></script>
+</body>
+</html>

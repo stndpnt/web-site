@@ -14,8 +14,7 @@
   var PAGE     = window.PORTFOLIO_PAGE || "portfolio";
   var MAX_HOME = 6;
 
-  var LABELS = { "custom": "Custom Exhibition Stand", "group-build": "Group Build Solution" };
-  var FILTER = { "custom": "custom", "group-build": "group" };
+  var LABELS = { "custom": "Custom Exhibition Stand", "group": "Group Build Solution" };
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
@@ -30,12 +29,14 @@
     return (window.__resources && window.__resources[src]) || src;
   }
 
-  // Build the ordered image path list for a project. 01.jpg = cover = first.
+  // Build the ordered image path list for a project. 01.<ext> = cover = first.
+  // Per-project extension: custom folders are webp, group-builds are still jpg.
   function imagesOf(p) {
     var n = Math.max(0, parseInt(p.imageCount, 10) || 0);
+    var ext = p.ext || "jpg";
     var out = [];
     for (var i = 1; i <= n; i++) {
-      out.push(p.folder + "/" + (i < 10 ? "0" + i : "" + i) + ".jpg");
+      out.push(p.folder + "/" + (i < 10 ? "0" + i : "" + i) + "." + ext);
     }
     return out;
   }
@@ -78,10 +79,10 @@
     var imgs  = imagesOf(p);
     var cover = imgs[0] || null;
 
-    var btn = document.createElement("button");
-    btn.type = "button";
+    var btn = document.createElement("a");
+    btn.href = window.projectUrl ? window.projectUrl(p) : ("portfolio/" + p.id + "/");
     btn.className = "pf-card";
-    btn.dataset.cats = FILTER[p.category] || "custom";
+    btn.dataset.cats = p.category || "custom";
     btn.dataset.project = p.id;
 
     var imgTag = cover
@@ -102,7 +103,8 @@
         event +
       '</div>';
 
-    btn.addEventListener("click", function () { openLb(p, imgs); });
+    // href = the project's individual page. Normal click, Cmd/Ctrl-click, middle
+    // click and "open in new tab" all use standard browser navigation.
     frag.appendChild(btn);
   });
   if (empty) grid.insertBefore(frag, empty);

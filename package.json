@@ -1,0 +1,11 @@
+{
+  "name": "standpoint-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "StandPoint static website. The portfolio scripts below generate portfolio/<slug>/index.html from assets/js/portfolio-data.js.",
+  "scripts": {
+    "portfolio:check": "node scripts/generate-portfolio-pages.js --check",
+    "portfolio:project": "node scripts/generate-portfolio-pages.js --project",
+    "portfolio:all": "node scripts/generate-portfolio-pages.js --all"
+  }
+}
