@@ -1,0 +1,35 @@
+/* ============================================================================
+   STANDPOINT — SHARED SITE FOOTER
+   Single source of truth for the footer on EVERY public page. Values are taken
+   verbatim from the homepage (index.html), which is the visual reference.
+   Load LAST in <head> so it wins over any page-local footer rules.
+
+   Used by: index.html, portfolio.html, black-point.html, faq/index.html,
+            assets/css/project-page.css (@import) -> portfolio/<slug>/index.html
+
+   Do not fork these values into a page. Change them here.
+============================================================================ */
+
+footer{background:var(--bg);border-top:1px solid var(--line);padding:40px 0 32px}
+.footer-inner{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;align-items:start;gap:32px;font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.10em;line-height:1.7;text-transform:uppercase;color:var(--ink-3)}
+.footer-inner a{color:inherit}
+.footer-inner a:hover{color:var(--accent)}
+/* Both outer columns share one row rhythm (same 8px gap), so the second row
+   on the left sits on exactly the same level as the phone row on the right. */
+.footer-left{display:flex;flex-direction:column;gap:8px;line-height:1.7}
+.footer-left .ln-2{color:var(--ink-2)}
+.footer-nav{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:center}
+
+/* Contact column: the email and the phone row share one right edge. The column
+   is right-aligned as a whole and the phone row is its own flex row, so the
+   last phone number ends exactly where the email ends. */
+.footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;text-align:right;line-height:1.7}
+.footer-right a{color:var(--ink-2)}
+.footer-right .ph-line{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:14px}
+
+@media (max-width:900px){
+  .footer-inner{grid-template-columns:1fr;text-align:left}
+  .footer-nav{justify-content:flex-start}
+  .footer-right{text-align:left;align-items:flex-start}
+  .footer-right .ph-line{justify-content:flex-start}
+}
