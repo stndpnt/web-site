@@ -24,6 +24,9 @@ const ROOT = path.resolve(__dirname, "..");
 const DATA_FILE = path.join(ROOT, "assets", "js", "portfolio-data.js");
 const TEMPLATE_FILE = path.join(ROOT, "templates", "portfolio-project.html");
 const OUT_ROOT = path.join(ROOT, "portfolio");
+/* Absolute Open Graph URLs are required by Facebook/LinkedIn/Slack. Replace this
+   placeholder with the real domain at deploy time (same token as sitemap.xml). */
+const OG_ORIGIN = "https://PRODUCTION-DOMAIN";
 
 /* ---------------------------------------------------------------- data load */
 /* portfolio-data.js is a browser script (no module system). We evaluate it with
@@ -150,7 +153,7 @@ function buildFields(p) {
     PAGE_TITLE: esc(pageTitle),
     META_DESCRIPTION: esc(description),
     CANONICAL: "/portfolio/" + slug + "/",
-    OG_IMAGE: "/" + folder + "/01." + extOf(p),
+    OG_IMAGE: OG_ORIGIN + "/" + folder + "/01." + extOf(p),
     CRUMB: esc(title),
     TAG: isGroup ? "Group Stand Construction" : "Custom Exhibition Stand",
     H1: esc(title),

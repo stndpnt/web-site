@@ -1,9 +1,19 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Portfolio — StandPoint Expo</title>
+<title>Portfolio — Exhibition Stand Projects | StandPoint</title>
+<meta name="description" content="Selected exhibition stand projects by StandPoint: custom stands and group stand construction for trade fairs across Europe, Ukraine and the Middle East." />
+<link rel="canonical" href="/portfolio.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Portfolio — Exhibition Stand Projects | StandPoint" />
+<meta property="og:description" content="Selected exhibition stand projects by StandPoint: custom stands and group stand construction for trade fairs across Europe, Ukraine and the Middle East." />
+<meta property="og:url" content="https://PRODUCTION-DOMAIN/portfolio.html" />
+<meta property="og:image" content="https://PRODUCTION-DOMAIN/assets/logo.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="256x256" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1268,7 +1278,7 @@
     </div>
     <div class="topbar-right">
       <a href="mailto:our.team@standpoint-expo.com">our.team@standpoint-expo.com</a>
-      <a href="tel:+380952011149" class="hide-sm">+38 (095) 20-111-49</a>
+      <a href="tel:+380952011149" class="hide-sm">+380 95 201 11 49</a>
       <a href="tel:+48732221831" class="hide-sm">+48 732 221 831</a>
     </div>
   </div>
@@ -1403,7 +1413,7 @@
       </div>
       <div class="cc-row">
         <div class="cc-label">Phone</div>
-        <div class="cc-value"><a href="tel:+380952011149">+38 (095) 20-111-49</a><br><a href="tel:+48732221831">+48 732 221 831</a></div>
+        <div class="cc-value"><a href="tel:+380952011149">+380 95 201 11 49</a><br><a href="tel:+48732221831">+48 732 221 831</a></div>
       </div>
     </aside>
   </div>
@@ -1426,86 +1436,11 @@
     </nav>
     <div class="footer-right">
       <a href="mailto:our.team@standpoint-expo.com">our.team@standpoint-expo.com</a>
-      <span class="ph-line"><a href="tel:+380952011149">+380 95 201 11 49</a><a href="tel:+48732221831">+48 732 221 831</a></span>
+      <span class="ph-line"><a href="tel:+380952011149">+380 95 201 11 49</a>
+        <a href="tel:+48732221831">+48 732 221 831</a></span>
     </div>
   </div>
 </footer>
-
-<!-- ============== TWEAKS ============== -->
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script type="text/babel" src="tweaks-panel.jsx"></script>
-
-<div id="tweaks-root"></div>
-<script type="text/babel">
-  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-    "theme": "dark",
-    "videoMuted": true,
-    "videoPlaying": true,
-    "showWatermark": true
-  }/*EDITMODE-END*/;
-
-  function TweaksApp() {
-    const [t, setTweak] = window.useTweaks(TWEAK_DEFAULTS);
-
-    React.useEffect(() => {
-      document.documentElement.dataset.theme = t.theme;
-    }, [t.theme]);
-
-    React.useEffect(() => {
-      const v = document.querySelector('.hero-video-wrap video');
-      if (!v) return;
-      v.muted = t.videoMuted;
-      if (t.videoPlaying) v.play().catch(()=>{}); else v.pause();
-    }, [t.videoMuted, t.videoPlaying]);
-
-    React.useEffect(() => {
-      const w = document.querySelector('.watermark');
-      if (w) w.style.display = t.showWatermark ? '' : 'none';
-    }, [t.showWatermark]);
-
-    const { TweaksPanel, TweakSection, TweakRadio, TweakToggle } = window;
-    return (
-      <TweaksPanel title="Tweaks">
-        <TweakSection label="Aesthetic direction">
-          <TweakRadio
-            label="Theme"
-            value={t.theme}
-            onChange={(v) => setTweak('theme', v)}
-            options={[
-              { value: 'dark',     label: 'Cinema' },
-              { value: 'light',    label: 'Editor' },
-              { value: 'charcoal', label: 'Archit' },
-            ]}
-          />
-        </TweakSection>
-        <TweakSection label="Hero video">
-          <TweakToggle
-            label="Playing"
-            value={t.videoPlaying}
-            onChange={(v) => setTweak('videoPlaying', v)}
-          />
-          <TweakToggle
-            label="Muted"
-            value={t.videoMuted}
-            onChange={(v) => setTweak('videoMuted', v)}
-          />
-        </TweakSection>
-        <TweakSection label="Details">
-          <TweakToggle
-            label="SP watermark"
-            value={t.showWatermark}
-            onChange={(v) => setTweak('showWatermark', v)}
-          />
-        </TweakSection>
-      </TweaksPanel>
-    );
-  }
-
-  const root = ReactDOM.createRoot(document.getElementById('tweaks-root'));
-  root.render(<TweaksApp />);
-</script>
 
 <script src="assets/js/stand-request-modal.js"></script>
 </body>

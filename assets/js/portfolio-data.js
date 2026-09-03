@@ -438,11 +438,11 @@ const portfolioProjects = [
     imageCount: 1
   },
   {
-    id: "prorasu-intersharm",
+    id: "proraso-intersharm",
     title: "Proraso",
     exhibition: "Intersharm",
     category: "custom",
-    folder: "assets/portfolio/custom/40-prorasu-intersharm",
+    folder: "assets/portfolio/custom/40-proraso-intersharm",
     ext: "webp",
     imageCount: 1
   },
