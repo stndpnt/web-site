@@ -1,0 +1,26 @@
+/* ============================================================================
+   STANDPOINT — SHARED SITE HEADER
+   Single source of truth for the main site header on EVERY public page.
+   Values are taken verbatim from the homepage (index.html), which is the
+   visual reference. Load this file LAST in <head> so it wins over any
+   page-local header rules.
+
+   Used by: index.html, portfolio.html, black-point.html, faq/index.html,
+            assets/css/project-page.css (@import) -> portfolio/<slug>/index.html
+
+   Do not fork these values into a page. Change them here.
+============================================================================ */
+
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:104px}
+.logo{display:flex;align-items:center;gap:14px;height:81px}
+.logo img{height:100%;width:auto;display:block}
+.nav{display:flex;align-items:center;gap:36px}
+.nav a{font-size:14.5px;letter-spacing:.01em;transition:color .2s}
+.nav .cta-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;font-weight:600;font-size:13px;letter-spacing:.02em;border-radius:2px}
+
+/* Mobile — homepage behaviour is the reference here too. */
+@media (max-width:640px){
+  .nav{gap:20px}
+  .header-inner{height:84px}
+  .logo{height:50px}
+}
