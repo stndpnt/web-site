@@ -7,6 +7,10 @@
     "portfolio:check": "node scripts/generate-portfolio-pages.js --check",
     "portfolio:project": "node scripts/generate-portfolio-pages.js --project",
     "portfolio:all": "node scripts/generate-portfolio-pages.js --all",
+    "portfolio:all:pending": "node scripts/generate-portfolio-pages.js --all --allow-missing-images",
+    "portfolio:folders": "node scripts/prepare-portfolio-folders.js",
+    "portfolio:folders:check": "node scripts/prepare-portfolio-folders.js --check",
+    "sitemap": "node scripts/generate-sitemap.js",
     "build": "node scripts/build-production.js",
     "build:check": "node scripts/build-production.js --check"
   }

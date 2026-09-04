@@ -106,7 +106,7 @@ const portfolioProjects = [
     exhibition: "",
     description: "A dynamic custom exhibition stand built around Toshiba’s strong red-and-white identity and large sweeping architectural curves. The open corner layout combines a prominent overhead branded fascia with sculptural ribbon-like forms that create a recognisable visual landmark in the hall. Dedicated equipment demonstration areas allow visitors to interact directly with medical technology, supported by presentation screens and informal meeting points. Curved counters, integrated lighting and partner branding complete a bright, structured environment focused on product demonstration and professional communication.",
     category: "custom",
-    folder: "assets/portfolio/custom/03-toshiba-standpoint",
+    folder: "assets/portfolio/custom/03-toshiba",
     ext: "webp",
     imageCount: 4
   },
@@ -116,7 +116,7 @@ const portfolioProjects = [
     exhibition: "EuroShop",
     description: "StandPoint’s EuroShop stand was conceived as a visual transformation in motion. From most angles, the central installation reads as an abstract composition of fragmented geometric forms. As visitors move along the stand, the elements gradually align until, from one precise viewpoint, they form a face — the StandPoint logo.\n\nThe concept makes the visitor’s movement part of the stand itself, turning perspective into an interactive visual experience. Black reflective surfaces, orange and yellow accents and fine linear lighting reinforce the fragmented geometry throughout the space.",
     category: "custom",
-    folder: "assets/portfolio/custom/04-standpoint-euroshop",
+    folder: "assets/portfolio/custom/04-euroshop",
     ext: "webp",
     imageCount: 7
   },
@@ -253,7 +253,7 @@ const portfolioProjects = [
     title: "Eurovision Song Contest",
     exhibition: "Kyiv 2017",
     category: "custom",
-    folder: "assets/portfolio/custom/19-eurovision-2017-standpoint",
+    folder: "assets/portfolio/custom/19-eurovision-2017",
     ext: "webp",
     imageCount: 17
   },
@@ -456,6 +456,15 @@ const portfolioProjects = [
     imageCount: 1
   },
   {
+    id: "acme-intersharm",
+    title: "ACME",
+    exhibition: "Intersharm",
+    category: "custom",
+    folder: "assets/portfolio/custom/42-acme-intersharm",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
     id: "you-are-cute-intersharm",
     title: "You Are Cute",
     exhibition: "Intersharm",
@@ -469,7 +478,7 @@ const portfolioProjects = [
     title: "K\u00e4rcher",
     exhibition: "StandPoint",
     category: "custom",
-    folder: "assets/portfolio/custom/44-karcher-standpoint",
+    folder: "assets/portfolio/custom/44-karcher",
     ext: "webp",
     imageCount: 4
   },
@@ -478,7 +487,7 @@ const portfolioProjects = [
     title: "Kinder Club",
     exhibition: "StandPoint",
     category: "custom",
-    folder: "assets/portfolio/custom/45-kinderclub-standpoint",
+    folder: "assets/portfolio/custom/45-kinderclub",
     ext: "webp",
     imageCount: 3
   },
@@ -487,7 +496,7 @@ const portfolioProjects = [
     title: "Koller Pool",
     exhibition: "StandPoint",
     category: "custom",
-    folder: "assets/portfolio/custom/46-kollerpool-standpoint",
+    folder: "assets/portfolio/custom/46-kollerpool",
     ext: "webp",
     imageCount: 10
   },
@@ -496,7 +505,7 @@ const portfolioProjects = [
     title: "Korf",
     exhibition: "StandPoint",
     category: "custom",
-    folder: "assets/portfolio/custom/47-korf-standpoint",
+    folder: "assets/portfolio/custom/47-korf",
     ext: "webp",
     imageCount: 3
   },
@@ -505,7 +514,7 @@ const portfolioProjects = [
     title: "Greece",
     exhibition: "StandPoint",
     category: "custom",
-    folder: "assets/portfolio/custom/48-greece-standpoint",
+    folder: "assets/portfolio/custom/48-greece",
     ext: "webp",
     imageCount: 3
   },
@@ -514,7 +523,7 @@ const portfolioProjects = [
     title: "Georgia",
     exhibition: "StandPoint",
     category: "custom",
-    folder: "assets/portfolio/custom/49-georgia-standpoint",
+    folder: "assets/portfolio/custom/49-georgia",
     ext: "webp",
     imageCount: 1
   },
@@ -528,7 +537,7 @@ const portfolioProjects = [
     exhibition: "",
     description: "A Black Point group-build configuration designed for multiple exhibitors presented within one coordinated exhibition area. The shared modular framework creates visual consistency across the entire row of stands, while individual back-wall colours, graphics, counters and branding allow every participating company to remain clearly identifiable. Open frontages keep the area accessible and easy to navigate, while compact seating and presentation points can be adapted to each exhibitor’s needs. The result is a unified exhibition environment without making every stand look identical.",
     category: "group",
-    folder: "assets/portfolio/group-builds/group-build-1",
+    folder: "assets/portfolio/group-builds/01-modular-brand-stands",
     ext: "webp",
     imageCount: 3
   },
@@ -538,7 +547,7 @@ const portfolioProjects = [
     exhibition: "",
     description: "A clean Black Point corner configuration designed for products that need structured display space rather than large-scale architecture. The neutral modular framework can be equipped with tall and low showcases, shelving, focused lighting and a compact meeting point while keeping the stand open and visually uncluttered. Branding can be applied to the wall panels and corner totems, including long company names and stand numbers. This configuration works particularly well for jewellery, accessories, technical products, samples and other exhibits that benefit from organised, illuminated display.",
     category: "group",
-    folder: "assets/portfolio/group-builds/group-build-02",
+    folder: "assets/portfolio/group-builds/02-showcase-stand",
     ext: "webp",
     imageCount: 3
   },
@@ -548,7 +557,7 @@ const portfolioProjects = [
     exhibition: "",
     description: "A compact Black Point configuration combining product display, digital presentation and a one-to-one meeting area within a small corner stand. Glass showcases provide organised space for smaller products, while wall graphics, a presentation screen and branded display elements make the exhibitor clearly visible from the aisle. Floor colour and graphics can be adapted to the individual brand, allowing the same modular framework to take on a very different visual identity. It is a practical format for brands that need both display capacity and a professional space for direct conversations with visitors.",
     category: "group",
-    folder: "assets/portfolio/group-builds/group-build-03",
+    folder: "assets/portfolio/group-builds/03-retail-stand",
     ext: "webp",
     imageCount: 1
   },
@@ -558,7 +567,7 @@ const portfolioProjects = [
     exhibition: "",
     description: "Black Point can also be configured for industries where equipment, screens and lighting become part of the stand experience. In this gaming-oriented setup, darker wall panels, glazed sections, illuminated counters and open demonstration areas support different types of gaming equipment and visitor interaction. The modular framework accommodates large powered displays, table-game areas, hospitality seating and branded graphics while maintaining a coherent structure across neighbouring exhibitors. Individual lighting and floor treatments allow each stand to develop its own atmosphere within the shared group-build system.",
     category: "group",
-    folder: "assets/portfolio/group-builds/group-build-04",
+    folder: "assets/portfolio/group-builds/04-gaming-stand",
     ext: "webp",
     imageCount: 3
   },
@@ -568,7 +577,7 @@ const portfolioProjects = [
     exhibition: "",
     description: "A deliberately open Black Point configuration for exhibitors whose products need to occupy most of the stand floor. With minimal built-in elements, the modular framework provides branding, lighting and a clear stand boundary while leaving the central area free for product presentation. Wall graphics or repeated banners can be added without reducing usable floor space, and a small meeting point can be incorporated at the perimeter. This approach works particularly well for furniture, equipment and other physical products that need to be seen, tested or compared directly on the stand.",
     category: "group",
-    folder: "assets/portfolio/group-builds/group-build-05",
+    folder: "assets/portfolio/group-builds/05-presentation-area",
     ext: "webp",
     imageCount: 1
   },
@@ -578,7 +587,1031 @@ const portfolioProjects = [
     exhibition: "",
     description: "A Black Point corner configuration adapted for packaged food and consumer-product presentation. A projecting showcase creates a strong visual point at the aisle, while wall graphics, a presentation screen and additional product displays provide several ways to communicate the brand and range. A compact seated meeting area can be incorporated without taking significant space away from the display. The modular framework allows graphics, flooring and product furniture to be customised for the exhibitor while maintaining the consistent structure required for larger group-build exhibition areas.",
     category: "group",
-    folder: "assets/portfolio/group-builds/group-build-06",
+    folder: "assets/portfolio/group-builds/06-food-display-stand",
+    ext: "webp",
+    imageCount: 1
+  },
+
+  /* ==================  CUSTOM STANDS — IMPORT BATCH 50–162  ==================
+     113 projects imported from StandPoint_portfolio_manifest_50-162.xlsx and
+     portfolio-webp-structure-from-50.txt (import numbers 50–162; the numeric
+     prefix stays in the SOURCE FOLDER name only — public URLs use the plain
+     slug, e.g. /portfolio/siemens/).
+
+     `exhibition` is intentionally empty where the manifest gave none — nothing
+     is invented and nothing is rendered for a blank value.
+
+     Image folders are declared here before the .webp files are uploaded. Until
+     the files land, cards and project pages show the normal "Image coming soon"
+     placeholder; no layout breaks. Create the empty folders with:
+         node scripts/prepare-portfolio-folders.js
+  ========================================================================== */
+
+  {
+    id: "bergner",
+    title: "Bergner",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/50-bergner",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "athlants",
+    title: "Athlants",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/51-athlants",
+    ext: "webp",
+    imageCount: 10
+  },
+  {
+    id: "siemens",
+    title: "Siemens",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/52-siemens",
+    ext: "webp",
+    imageCount: 9
+  },
+  {
+    id: "minenergo",
+    title: "Minenergo",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/53-minenergo",
+    ext: "webp",
+    imageCount: 16
+  },
+  {
+    id: "tece",
+    title: "TECE",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/54-tece",
+    ext: "webp",
+    imageCount: 4
+  },
+  {
+    id: "spaland",
+    title: "Spaland",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/55-spaland",
+    ext: "webp",
+    imageCount: 4
+  },
+  {
+    id: "spain",
+    title: "Spain",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/56-spain",
+    ext: "webp",
+    imageCount: 4
+  },
+  {
+    id: "siragroup",
+    title: "Sira Group",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/57-siragroup",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "tui",
+    title: "TUI",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/58-tui",
+    ext: "webp",
+    imageCount: 5
+  },
+  {
+    id: "kraft-international-industrial-forum",
+    title: "Kraft",
+    exhibition: "International Industrial Forum",
+    category: "custom",
+    folder: "assets/portfolio/custom/59-kraft-international-industrial-forum",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "go-active-intercharm",
+    title: "Go Active",
+    exhibition: "InterCHARM",
+    category: "custom",
+    folder: "assets/portfolio/custom/60-go-active-intercharm",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "gross-aqua-therm",
+    title: "Gross",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/61-gross-aqua-therm",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "media-aqua-therm",
+    title: "Media",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/62-media-aqua-therm",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "smart4derma-intercharm-2025",
+    title: "Smart4Derma",
+    exhibition: "InterCHARM 2025",
+    category: "custom",
+    folder: "assets/portfolio/custom/63-smart4derma-intercharm-2025",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "schneider-tek",
+    title: "Schneider",
+    exhibition: "TEK",
+    category: "custom",
+    folder: "assets/portfolio/custom/64-schneider-tek",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "helios-tek",
+    title: "Helios",
+    exhibition: "TEK",
+    category: "custom",
+    folder: "assets/portfolio/custom/65-helios-tek",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "naftogas-tek",
+    title: "Naftogas",
+    exhibition: "TEK",
+    category: "custom",
+    folder: "assets/portfolio/custom/66-naftogas-tek",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "buhler-worldfood",
+    title: "Buhler",
+    exhibition: "WorldFood",
+    category: "custom",
+    folder: "assets/portfolio/custom/67-buhler-worldfood",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "formula-probeauty",
+    title: "Formula",
+    exhibition: "PRO BEAUTY EXPO",
+    category: "custom",
+    folder: "assets/portfolio/custom/68-formula-probeauty",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "aristo-probeauty",
+    title: "Aristo",
+    exhibition: "PRO BEAUTY EXPO",
+    category: "custom",
+    folder: "assets/portfolio/custom/69-aristo-probeauty",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "gamma-probeauty",
+    title: "Gamma",
+    exhibition: "PRO BEAUTY EXPO",
+    category: "custom",
+    folder: "assets/portfolio/custom/70-gamma-probeauty",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "nadel-probeauty",
+    title: "Nadel",
+    exhibition: "PRO BEAUTY EXPO",
+    category: "custom",
+    folder: "assets/portfolio/custom/71-nadel-probeauty",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "skinon-probeauty",
+    title: "SkinOn",
+    exhibition: "PRO BEAUTY EXPO",
+    category: "custom",
+    folder: "assets/portfolio/custom/72-skinon-probeauty",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "extract-probeauty",
+    title: "Extract",
+    exhibition: "PRO BEAUTY EXPO",
+    category: "custom",
+    folder: "assets/portfolio/custom/73-extract-probeauty",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "btl-aesthetics-probeauty",
+    title: "BTL Aesthetics",
+    exhibition: "PRO BEAUTY EXPO",
+    category: "custom",
+    folder: "assets/portfolio/custom/74-btl-aesthetics-probeauty",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "proactive-skin-intercharm",
+    title: "Proactive Skin",
+    exhibition: "InterCHARM",
+    category: "custom",
+    folder: "assets/portfolio/custom/75-proactive-skin-intercharm",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "itak-wf",
+    title: "ITAK",
+    exhibition: "WF",
+    category: "custom",
+    folder: "assets/portfolio/custom/76-itak-wf",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "spetsmash-tek",
+    title: "Spetsmash",
+    exhibition: "TEK",
+    category: "custom",
+    folder: "assets/portfolio/custom/77-spetsmash-tek",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "smc-international-industrial-forum",
+    title: "SMC",
+    exhibition: "International Industrial Forum",
+    category: "custom",
+    folder: "assets/portfolio/custom/78-smc-international-industrial-forum",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "german-oilgasexpo",
+    title: "German",
+    exhibition: "Oil & Gas Expo",
+    category: "custom",
+    folder: "assets/portfolio/custom/79-german-oilgasexpo",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "ukroboronprom-arms-and-security",
+    title: "Ukroboronprom",
+    exhibition: "Arms and Security",
+    category: "custom",
+    folder: "assets/portfolio/custom/80-ukroboronprom-arms-and-security",
+    ext: "webp",
+    imageCount: 7
+  },
+  {
+    id: "ukrinstal-aqua-therm",
+    title: "Ukrinstal",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/81-ukrinstal-aqua-therm",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "termo-aqua-therm",
+    title: "Termo",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/82-termo-aqua-therm",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "nova-aqua-therm",
+    title: "Nova",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/83-nova-aqua-therm",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "motoimpex-commutex",
+    title: "Motoimpex",
+    exhibition: "COMMUTEX",
+    category: "custom",
+    folder: "assets/portfolio/custom/84-motoimpex-commutex",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "lockheed-martin-arms-and-security",
+    title: "Lockheed Martin",
+    exhibition: "Arms and Security",
+    category: "custom",
+    folder: "assets/portfolio/custom/85-lockheed-martin-arms-and-security",
+    ext: "webp",
+    imageCount: 4
+  },
+  {
+    id: "kozaktools-international-industrial-forum",
+    title: "Kozaktools",
+    exhibition: "International Industrial Forum",
+    category: "custom",
+    folder: "assets/portfolio/custom/86-kozaktools-international-industrial-forum",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "kerui-oil-gas",
+    title: "Kerui",
+    exhibition: "Oil & Gas",
+    category: "custom",
+    folder: "assets/portfolio/custom/87-kerui-oil-gas",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "join-up-uitt",
+    title: "Join UP",
+    exhibition: "UITT",
+    category: "custom",
+    folder: "assets/portfolio/custom/88-join-up-uitt",
+    ext: "webp",
+    imageCount: 7
+  },
+  {
+    id: "hispano-belux-cevisama",
+    title: "Hispano Belux",
+    exhibition: "Cevisama",
+    category: "custom",
+    folder: "assets/portfolio/custom/89-hispano-belux-cevisama",
+    ext: "webp",
+    imageCount: 4
+  },
+  {
+    id: "heiztechnik-aqua-therm",
+    title: "Heiztechnik",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/90-heiztechnik-aqua-therm",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "hakan-aqua-therm",
+    title: "Hakan",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/91-hakan-aqua-therm",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "graffiti-interbuild",
+    title: "Graffiti",
+    exhibition: "InterBuild",
+    category: "custom",
+    folder: "assets/portfolio/custom/92-graffiti-interbuild",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "germes-aqua-therm",
+    title: "Germes",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/93-germes-aqua-therm",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "demirdokum-aqua-therm",
+    title: "Demirdokum",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/94-demirdokum-aqua-therm",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "crocus-interbuild",
+    title: "Crocus",
+    exhibition: "InterBuild",
+    category: "custom",
+    folder: "assets/portfolio/custom/95-crocus-interbuild",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "convex-agritechnica",
+    title: "Convex",
+    exhibition: "Agritechnica",
+    category: "custom",
+    folder: "assets/portfolio/custom/96-convex-agritechnica",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "comap-aqua-therm",
+    title: "Comap",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/97-comap-aqua-therm",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "ceia-powtec",
+    title: "CEIA",
+    exhibition: "POWTECH",
+    category: "custom",
+    folder: "assets/portfolio/custom/98-ceia-powtec",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "carrello-babyexpo",
+    title: "Carrello",
+    exhibition: "Baby Expo",
+    category: "custom",
+    folder: "assets/portfolio/custom/99-carrello-babyexpo",
+    ext: "webp",
+    imageCount: 5
+  },
+  {
+    id: "berkeplastik-aquatherm",
+    title: "Berke Plastik",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/100-berkeplastik-aquatherm",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "eldom-aqua-therm",
+    title: "Eldom",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/101-eldom-aqua-therm",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "marketlis-mtkt",
+    title: "Marketlis",
+    exhibition: "MTKT",
+    category: "custom",
+    folder: "assets/portfolio/custom/102-marketlis-mtkt",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "zorya-mashproekt-power-engineering-for-industry",
+    title: "Zorya-Mashproekt",
+    exhibition: "Power Engineering for Industry",
+    category: "custom",
+    folder: "assets/portfolio/custom/103-zorya-mashproekt-power-engineering-for-industry",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "varna-aqua-therm",
+    title: "Varna",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/104-varna-aqua-therm",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "varius-international-industrial-forum",
+    title: "Varius",
+    exhibition: "International Industrial Forum",
+    category: "custom",
+    folder: "assets/portfolio/custom/105-varius-international-industrial-forum",
+    ext: "webp",
+    imageCount: 6
+  },
+  {
+    id: "ungs-oilgasexpo",
+    title: "UNGS",
+    exhibition: "Oil & Gas Expo",
+    category: "custom",
+    folder: "assets/portfolio/custom/106-ungs-oilgasexpo",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "ukrenergo-power-engineering-for-industry",
+    title: "Ukrenergo",
+    exhibition: "Power Engineering for Industry",
+    category: "custom",
+    folder: "assets/portfolio/custom/107-ukrenergo-power-engineering-for-industry",
+    ext: "webp",
+    imageCount: 5
+  },
+  {
+    id: "tabriz-inter-build-expo",
+    title: "Tabriz",
+    exhibition: "Inter Build Expo",
+    category: "custom",
+    folder: "assets/portfolio/custom/108-tabriz-inter-build-expo",
+    ext: "webp",
+    imageCount: 4
+  },
+  {
+    id: "stvol-arms-and-security",
+    title: "Stvol",
+    exhibition: "Arms and Security",
+    category: "custom",
+    folder: "assets/portfolio/custom/109-stvol-arms-and-security",
+    ext: "webp",
+    imageCount: 5
+  },
+  {
+    id: "smeg-interior-mebel",
+    title: "SMEG",
+    exhibition: "Interior Mebel",
+    category: "custom",
+    folder: "assets/portfolio/custom/110-smeg-interior-mebel",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "nova-vista-international-industry-of-optics",
+    title: "Nova Vista",
+    exhibition: "International Industry of Optics",
+    category: "custom",
+    folder: "assets/portfolio/custom/111-nova-vista-international-industry-of-optics",
+    ext: "webp",
+    imageCount: 8
+  },
+  {
+    id: "new-style-budma-2022",
+    title: "New Style",
+    exhibition: "BUDMA 2022",
+    category: "custom",
+    folder: "assets/portfolio/custom/112-new-style-budma-2022",
+    ext: "webp",
+    imageCount: 5
+  },
+  {
+    id: "ministry-of-energy-and-coal-industry-of-ukraine-power-engineering-for-industry",
+    title: "Ministry of Energy and Coal Industry of Ukraine",
+    exhibition: "Power Engineering for Industry",
+    category: "custom",
+    folder: "assets/portfolio/custom/113-ministry-of-energy-and-coal-industry-of-ukraine-power-engineering-for-industry",
+    ext: "webp",
+    imageCount: 5
+  },
+  {
+    id: "mg-sia",
+    title: "MG",
+    exhibition: "SIA",
+    category: "custom",
+    folder: "assets/portfolio/custom/114-mg-sia",
+    ext: "webp",
+    imageCount: 4
+  },
+  {
+    id: "meibes-aqua-therm",
+    title: "Meibes",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/115-meibes-aqua-therm",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "maresto-forech",
+    title: "Maresto",
+    exhibition: "FORECH",
+    category: "custom",
+    folder: "assets/portfolio/custom/116-maresto-forech",
+    ext: "webp",
+    imageCount: 4
+  },
+  {
+    id: "lg-aqua-therm",
+    title: "LG",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/117-lg-aqua-therm",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "leitz-international-industrial-forum",
+    title: "Leitz",
+    exhibition: "International Industrial Forum",
+    category: "custom",
+    folder: "assets/portfolio/custom/118-leitz-international-industrial-forum",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "kuzny-arms-and-security",
+    title: "Kuzny",
+    exhibition: "Arms and Security",
+    category: "custom",
+    folder: "assets/portfolio/custom/119-kuzny-arms-and-security",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "kugel-international-industrial-forum",
+    title: "Kugel",
+    exhibition: "International Industrial Forum",
+    category: "custom",
+    folder: "assets/portfolio/custom/120-kugel-international-industrial-forum",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "kompas-uitt",
+    title: "Kompas",
+    exhibition: "UITT",
+    category: "custom",
+    folder: "assets/portfolio/custom/121-kompas-uitt",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "koller-pool-aqua-therm",
+    title: "Koller Pool",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/122-koller-pool-aqua-therm",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "kaeser-international-industrial-forum",
+    title: "Kaeser",
+    exhibition: "International Industrial Forum",
+    category: "custom",
+    folder: "assets/portfolio/custom/123-kaeser-international-industrial-forum",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "iscar-international-industrial-forum",
+    title: "Iscar",
+    exhibition: "International Industrial Forum",
+    category: "custom",
+    folder: "assets/portfolio/custom/124-iscar-international-industrial-forum",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "ipst-international-dental-forum",
+    title: "IPST",
+    exhibition: "International Dental Forum",
+    category: "custom",
+    folder: "assets/portfolio/custom/125-ipst-international-dental-forum",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "india-uitt",
+    title: "India",
+    exhibition: "UITT",
+    category: "custom",
+    folder: "assets/portfolio/custom/126-india-uitt",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "grifre-fuel-and-energy-complex-of-ukraine",
+    title: "Grifre",
+    exhibition: "Fuel and Energy Complex of Ukraine",
+    category: "custom",
+    folder: "assets/portfolio/custom/127-grifre-fuel-and-energy-complex-of-ukraine",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "europan-electro-install",
+    title: "Europan",
+    exhibition: "Electro Install",
+    category: "custom",
+    folder: "assets/portfolio/custom/128-europan-electro-install",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "hosseven-aqua-therm",
+    title: "Hosseven",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/129-hosseven-aqua-therm",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "gsp-oil-gas-expo",
+    title: "GSP",
+    exhibition: "Oil & Gas Expo",
+    category: "custom",
+    folder: "assets/portfolio/custom/130-gsp-oil-gas-expo",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "great-britain-grain-technologies",
+    title: "Great Britain",
+    exhibition: "Grain Technologies",
+    category: "custom",
+    folder: "assets/portfolio/custom/131-great-britain-grain-technologies",
+    ext: "webp",
+    imageCount: 4
+  },
+  {
+    id: "formul-aqua-therm",
+    title: "Formul",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/132-formul-aqua-therm",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "fantacy-mood-leather-and-shoes",
+    title: "FANTACY MOOD",
+    exhibition: "Leather and Shoes",
+    category: "custom",
+    folder: "assets/portfolio/custom/133-fantacy-mood-leather-and-shoes",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "eurofresh-worldfood",
+    title: "Eurofresh",
+    exhibition: "WorldFood",
+    category: "custom",
+    folder: "assets/portfolio/custom/134-eurofresh-worldfood",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "estyle-leather-and-shoes",
+    title: "Estyle",
+    exhibition: "Leather and Shoes",
+    category: "custom",
+    folder: "assets/portfolio/custom/135-estyle-leather-and-shoes",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "ekoplastik-aqua-therm",
+    title: "Ekoplastik",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/136-ekoplastik-aqua-therm",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "ecobarry-anuga",
+    title: "Ecobarry",
+    exhibition: "Anuga",
+    category: "custom",
+    folder: "assets/portfolio/custom/137-ecobarry-anuga",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "durma-aqua-therm",
+    title: "Durma",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/138-durma-aqua-therm",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "dolya-arms-and-security",
+    title: "Dolya",
+    exhibition: "Arms and Security",
+    category: "custom",
+    folder: "assets/portfolio/custom/139-dolya-arms-and-security",
+    ext: "webp",
+    imageCount: 4
+  },
+  {
+    id: "dmk-intercharm",
+    title: "DMK",
+    exhibition: "InterCHARM",
+    category: "custom",
+    folder: "assets/portfolio/custom/140-dmk-intercharm",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "denimex-oilgasexpo",
+    title: "Denimex",
+    exhibition: "Oil & Gas Expo",
+    category: "custom",
+    folder: "assets/portfolio/custom/141-denimex-oilgasexpo",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "cryosystem-aqua-therm",
+    title: "Cryosystem",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/142-cryosystem-aqua-therm",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "binzel-international-industrial-forum",
+    title: "Binzel",
+    exhibition: "International Industrial Forum",
+    category: "custom",
+    folder: "assets/portfolio/custom/143-binzel-international-industrial-forum",
+    ext: "webp",
+    imageCount: 4
+  },
+  {
+    id: "bausch-international-industrial-of-optics",
+    title: "Bausch",
+    exhibition: "International Industrial of Optics",
+    category: "custom",
+    folder: "assets/portfolio/custom/144-bausch-international-industrial-of-optics",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "b4g-gaming-industry",
+    title: "B4G",
+    exhibition: "Gaming Industry",
+    category: "custom",
+    folder: "assets/portfolio/custom/145-b4g-gaming-industry",
+    ext: "webp",
+    imageCount: 4
+  },
+  {
+    id: "ariston-aqua-therm",
+    title: "Ariston",
+    exhibition: "Aqua-Therm",
+    category: "custom",
+    folder: "assets/portfolio/custom/146-ariston-aqua-therm",
+    ext: "webp",
+    imageCount: 1
+  },
+  {
+    id: "agrii-grain-technologies",
+    title: "Agrii",
+    exhibition: "Grain Technologies",
+    category: "custom",
+    folder: "assets/portfolio/custom/147-agrii-grain-technologies",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "advansys-gaming-industry",
+    title: "Advansys",
+    exhibition: "Gaming Industry",
+    category: "custom",
+    folder: "assets/portfolio/custom/148-advansys-gaming-industry",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "lainex",
+    title: "Lainex",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/149-lainex",
+    ext: "webp",
+    imageCount: 4
+  },
+  {
+    id: "aniplast",
+    title: "Aniplast",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/150-aniplast",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "nestle",
+    title: "Nestle",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/151-nestle",
+    ext: "webp",
+    imageCount: 9
+  },
+  {
+    id: "hakan",
+    title: "Hakan",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/152-hakan",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "fado",
+    title: "Fado",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/153-fado",
+    ext: "webp",
+    imageCount: 7
+  },
+  {
+    id: "euroestetgroup",
+    title: "Euroestetgroup",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/154-euroestetgroup",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "egypt",
+    title: "Egypt",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/155-egypt",
+    ext: "webp",
+    imageCount: 18
+  },
+  {
+    id: "dubai",
+    title: "Dubai",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/156-dubai",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "coral",
+    title: "Coral",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/157-coral",
+    ext: "webp",
+    imageCount: 14
+  },
+  {
+    id: "christina",
+    title: "Christina",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/158-christina",
+    ext: "webp",
+    imageCount: 2
+  },
+  {
+    id: "bigdutchman",
+    title: "Big Dutchman",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/159-bigdutchman",
+    ext: "webp",
+    imageCount: 5
+  },
+  {
+    id: "apimondia",
+    title: "Apimondia",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/160-apimondia",
+    ext: "webp",
+    imageCount: 3
+  },
+  {
+    id: "anex",
+    title: "Anex",
+    exhibition: "",
+    category: "custom",
+    folder: "assets/portfolio/custom/161-anex",
     ext: "webp",
     imageCount: 1
   }

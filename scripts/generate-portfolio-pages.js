@@ -11,7 +11,10 @@
      node scripts/generate-portfolio-pages.js --project <id-or-slug>
      node scripts/generate-portfolio-pages.js --all
    Options:
-     --out <dir>   write pages under <dir> instead of portfolio/ (safe dry run)
+     --out <dir>              write pages under <dir> instead of portfolio/
+     --allow-missing-images   generate pages for projects whose .webp files are
+                              not uploaded yet (missing files become notes
+                              instead of errors; paths are still written)
 
    Nothing here writes to portfolio-data.js or to any image file.
 ============================================================================ */
@@ -61,10 +64,14 @@ function imageNames(p) {
 }
 
 /* --------------------------------------------------------------- validation */
-/* Returns { errors: [], warnings: [] } for one project. */
-function validateProject(p, allProjects) {
+/* Returns { errors: [], warnings: [] } for one project.
+   opts.allowMissingImages downgrades "file/folder not on disk yet" to a note,
+   so a batch of projects can be prepared before the images are uploaded. */
+function validateProject(p, allProjects, opts) {
+  const allowMissing = !!(opts && opts.allowMissingImages);
   const errors = [];
   const warnings = [];
+  const imgIssue = (msg) => (allowMissing ? warnings : errors).push(msg);
   const label = p && (p.id || p.slug || "(project with no id)");
 
   if (!p.id && !p.slug) errors.push("missing both `id` and `slug`");
@@ -85,11 +92,11 @@ function validateProject(p, allProjects) {
   if (p.folder) {
     const dir = path.join(ROOT, p.folder);
     if (!fs.existsSync(dir) || !fs.statSync(dir).isDirectory()) {
-      errors.push("image folder not found: " + p.folder);
+      imgIssue("image folder not found (images not uploaded yet?): " + p.folder);
     } else if (Number.isInteger(p.imageCount) && p.imageCount >= 1) {
       const missing = imageNames(p).filter((n) => !fs.existsSync(path.join(dir, n)));
       if (missing.length)
-        errors.push("missing image file(s) in " + p.folder + ": " + missing.join(", "));
+        imgIssue("missing image file(s) in " + p.folder + ": " + missing.join(", "));
 
       /* extra sequential files beyond imageCount = gap / stale imageCount */
       const onDisk = fs
@@ -110,8 +117,8 @@ function validateProject(p, allProjects) {
   return { label, errors, warnings };
 }
 
-function validateAll(projects) {
-  return projects.map((p) => validateProject(p, projects));
+function validateAll(projects, opts) {
+  return projects.map((p) => validateProject(p, projects, opts));
 }
 
 /* ----------------------------------------------------------------- rendering */
@@ -198,9 +205,10 @@ function main(argv) {
 
   const { portfolioProjects } = loadData();
   const outRoot = valueOf("--out") ? path.resolve(ROOT, valueOf("--out")) : OUT_ROOT;
+  const opts = { allowMissingImages: has("--allow-missing-images") };
 
   if (has("--check")) {
-    const results = validateAll(portfolioProjects);
+    const results = validateAll(portfolioProjects, opts);
     results.forEach((r) => (r.errors.length || r.warnings.length) && report(r));
     const bad = results.filter((r) => r.errors.length);
     console.log(
@@ -220,7 +228,7 @@ function main(argv) {
       console.log("ERROR: no project with id/slug `" + key + "` in portfolio-data.js");
       process.exit(1);
     }
-    const res = validateProject(p, portfolioProjects);
+    const res = validateProject(p, portfolioProjects, opts);
     if (res.errors.length) {
       report(res);
       console.log("\nNot generated — fix the errors above first.");
@@ -235,7 +243,7 @@ function main(argv) {
     let ok = 0;
     const skipped = [];
     portfolioProjects.forEach((p) => {
-      const res = validateProject(p, portfolioProjects);
+      const res = validateProject(p, portfolioProjects, opts);
       if (res.errors.length) {
         report(res);
         skipped.push(res.label);
@@ -255,7 +263,8 @@ function main(argv) {
       "  node scripts/generate-portfolio-pages.js --check\n" +
       "  node scripts/generate-portfolio-pages.js --project <id-or-slug>\n" +
       "  node scripts/generate-portfolio-pages.js --all\n" +
-      "  (add  --out <dir>  to generate into a scratch folder instead)"
+      "  (add  --out <dir>  to generate into a scratch folder instead,\n" +
+      "   or  --allow-missing-images  while image folders are still pending)"
   );
   process.exit(1);
 }

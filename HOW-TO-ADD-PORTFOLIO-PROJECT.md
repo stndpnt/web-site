@@ -166,3 +166,53 @@ Terminal yourself.
 previously made directly inside `portfolio/<slug>/index.html` is replaced. If a
 page needs a design change, change `templates/portfolio-project.html` instead —
 that template is what every page is built from.
+
+---
+
+## Preparing projects before the images exist
+
+When the project records are added first and the photos arrive later (as with
+the 50–162 import batch), the workflow is:
+
+1. Create every declared image folder:
+
+   ```bash
+   npm run portfolio:folders          # creates missing folders
+   npm run portfolio:folders:check    # reports which are still empty
+   ```
+
+2. Generate the pages with the images still pending:
+
+   ```bash
+   npm run portfolio:all:pending      # --allow-missing-images
+   ```
+
+   Missing files are reported as notes instead of errors. The pages already
+   point at the final image paths (`01.webp`, `02.webp`, …).
+
+3. When the real `.webp` folders are uploaded, run the normal commands to
+   confirm and refresh everything:
+
+   ```bash
+   npm run portfolio:check
+   npm run portfolio:all
+   npm run sitemap
+   npm run build
+   ```
+
+Until the files land, cards and galleries show the standard "Image coming soon"
+placeholder — the layout never breaks.
+
+---
+
+## Production build
+
+```bash
+npm run build
+```
+
+Copies the public site into `dist/` and bakes the portfolio cards straight into
+`dist/portfolio.html`, generated from `portfolio-data.js`. Portfolio cards and
+project links are therefore present in the production HTML before JavaScript
+runs; JavaScript only filters them. Never edit cards in `portfolio.html` by
+hand — its grid holds only the `<!-- BUILD:PORTFOLIO_CARDS -->` marker.

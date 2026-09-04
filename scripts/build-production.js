@@ -39,7 +39,7 @@ const INCLUDE = [
   "portfolio.html",      /* portfolio listing */
   "black-point.html",    /* group stands */
   "faq",                 /* faq/index.html */
-  "portfolio",           /* 54 generated project pages */
+  "portfolio",             /* generated project pages, one per project */
   "assets",              /* css, js, images, video, logos, favicons */
   "robots.txt",
   "sitemap.xml",
