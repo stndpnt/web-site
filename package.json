@@ -6,6 +6,8 @@
   "scripts": {
     "portfolio:check": "node scripts/generate-portfolio-pages.js --check",
     "portfolio:project": "node scripts/generate-portfolio-pages.js --project",
-    "portfolio:all": "node scripts/generate-portfolio-pages.js --all"
+    "portfolio:all": "node scripts/generate-portfolio-pages.js --all",
+    "build": "node scripts/build-production.js",
+    "build:check": "node scripts/build-production.js --check"
   }
 }

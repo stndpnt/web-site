@@ -4,7 +4,10 @@
    ----------------------------------------------------------------------------
    Copies ONLY the public website into dist/, so the production web root can
    never receive development files. Nothing is deleted from the repository and
-   no site file is modified — this is a copy step.
+   no site file is modified — this is a copy step, plus one generation step:
+   the portfolio cards are baked into dist/portfolio.html from
+   assets/js/portfolio-data.js, so the production HTML contains the real
+   project cards and links before any JavaScript runs.
 
    Usage:
      node scripts/build-production.js            # build into dist/
@@ -19,6 +22,12 @@
 
 const fs = require("fs");
 const path = require("path");
+const { loadData } = require("./generate-portfolio-pages");
+const { injectCards, orderedProjects } = require("./portfolio-cards");
+
+/* Cover images of the first cards load eagerly; every other cover stays
+   natively lazy so the page never requests hundreds of images at once. */
+const EAGER_COVERS = 3;
 
 const ROOT = path.resolve(__dirname, "..");
 
@@ -53,6 +62,20 @@ const EXCLUDE_DOC = [
 /* Files that must never be copied even from inside an included folder. */
 const SKIP_NAMES = new Set([".DS_Store", "Thumbs.db", ".image-slots.state.json"]);
 
+/* --- C. build-time HTML generation ----------------------------------------
+   dist/portfolio.html gets the real portfolio cards baked in, generated from
+   assets/js/portfolio-data.js (the single source of truth). The source
+   portfolio.html stays a template: its #pfGrid holds only a build marker, and
+   the browser renderer detects the baked cards and skips creating them. */
+function prerenderPortfolio(outDir) {
+  const file = path.join(outDir, "portfolio.html");
+  if (!fs.existsSync(file)) return null;
+  const data = loadData();
+  const html = injectCards(fs.readFileSync(file, "utf8"), data, { eagerCount: EAGER_COVERS });
+  fs.writeFileSync(file, html, "utf8");
+  return orderedProjects(data).length;
+}
+
 function copyRecursive(src, dest, out) {
   const name = path.basename(src);
   if (SKIP_NAMES.has(name)) return;
@@ -82,6 +105,10 @@ function main(argv) {
   if (check) {
     console.log("Would copy into " + path.relative(ROOT, outDir) + "/:");
     INCLUDE.filter((p) => !missing.includes(p)).forEach((p) => console.log("  " + p));
+    console.log(
+      "\nThen bake " + orderedProjects(loadData()).length +
+        " portfolio cards into " + path.relative(ROOT, outDir) + "/portfolio.html"
+    );
     console.log("\nNever copied:");
     EXCLUDE_DOC.forEach((p) => console.log("  " + p));
     return;
@@ -93,13 +120,18 @@ function main(argv) {
     copyRecursive(path.join(ROOT, p), path.join(outDir, p), out)
   );
 
+  const cards = prerenderPortfolio(outDir);
+
   console.log(
     "Built " + path.relative(ROOT, outDir) + "/ — " + out.files + " file(s), " +
       (out.bytes / 1048576).toFixed(1) + " MB"
   );
+  if (cards !== null) {
+    console.log("Pre-rendered " + cards + " portfolio card(s) into portfolio.html");
+  }
   console.log("Upload the CONTENTS of " + path.relative(ROOT, outDir) + "/ to the public web root.");
 }
 
-module.exports = { INCLUDE, EXCLUDE_DOC };
+module.exports = { INCLUDE, EXCLUDE_DOC, prerenderPortfolio };
 
 if (require.main === module) main(process.argv);

@@ -74,7 +74,14 @@
   if (!grid) return;
 
   // ---------- Cards ----------
+  // The production build bakes the portfolio cards straight into
+  // dist/portfolio.html (see scripts/portfolio-cards.js), so they exist before
+  // this file runs. When cards are already present we skip creating them and
+  // only wire up filtering/lightbox below — identical markup either way.
+  var prerendered = !!grid.querySelector(".pf-card");
+
   var frag = document.createDocumentFragment();
+  if (prerendered) list = [];
   list.forEach(function (p) {
     var imgs  = imagesOf(p);
     var cover = imgs[0] || null;
@@ -107,8 +114,10 @@
     // click and "open in new tab" all use standard browser navigation.
     frag.appendChild(btn);
   });
-  if (empty) grid.insertBefore(frag, empty);
-  else grid.appendChild(frag);
+  if (!prerendered) {
+    if (empty) grid.insertBefore(frag, empty);
+    else grid.appendChild(frag);
+  }
 
   // ---------- Filters ----------
   var filters = Array.prototype.slice.call(document.querySelectorAll(".pf-filter"));
