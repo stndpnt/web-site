@@ -1,0 +1,40 @@
+/* ============================================================
+   StandPoint — shared CTA system
+   One definition per role, loaded by every public page:
+     .btn-primary   large orange content CTA (reference: "Request a proposal")
+     .nav .cta-btn  compact header CTA — same language, smaller box
+     .pf-cta-btn    outlined CTA that fills orange on hover
+     .btn-ghost /
+     .proj-back a   secondary text actions (brochure, back links)
+   Widths stay content-driven; only the visual language is shared.
+   ============================================================ */
+
+/* Shared typography for every button-like element */
+.btn-primary,.nav .cta-btn,.pf-cta-btn,.btn-ghost,.proj-back a{font-family:var(--sans,'Inter',-apple-system,BlinkMacSystemFont,sans-serif);letter-spacing:.02em;line-height:1.2;text-transform:none;white-space:nowrap}
+
+/* ---------- PRIMARY (large content CTA) ---------- */
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:16px 26px;font-size:14px;font-weight:600;background:var(--accent);color:var(--accent-ink,#0b0b0c);border:none;border-radius:2px;cursor:pointer;transition:background .2s,color .2s}
+.btn-primary:hover,.btn-primary:focus-visible{background:var(--accent-2);color:var(--accent-ink,#0b0b0c)}
+
+/* ---------- COMPACT (header) ---------- */
+.nav .cta-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:42px;padding:11px 20px;font-size:14.5px;font-weight:600;background:var(--accent);color:var(--accent-ink,#0b0b0c);border-radius:2px;transition:background .2s,color .2s}
+
+/* ---------- OUTLINED CTA ---------- */
+.pf-cta-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:16px 26px;font-size:14px;font-weight:600;color:var(--ink);background:transparent;border:1px solid var(--line-2);border-radius:2px;transition:background .2s,border-color .2s,color .2s}
+.pf-cta-btn:hover,.pf-cta-btn:focus-visible{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+
+/* Arrow treatment shared by all button CTAs */
+.btn-primary svg,.pf-cta-btn svg,.nav .cta-btn .arrow{flex:0 0 auto;transition:transform .2s}
+.btn-primary:hover svg,.pf-cta-btn:hover svg,.nav .cta-btn:hover .arrow{transform:translateX(3px)}
+
+/* ---------- SECONDARY TEXT ACTIONS ---------- */
+.btn-ghost,.proj-back a{display:inline-flex;align-items:center;gap:10px;padding:14px 0;font-size:14px;font-weight:500;color:var(--ink);background:none;border:0;border-bottom:1px solid var(--line-2);border-radius:0;cursor:pointer;transition:color .2s,border-color .2s}
+.btn-ghost:hover,.btn-ghost:focus-visible,.proj-back a:hover,.proj-back a:focus-visible{color:var(--accent);border-color:var(--accent)}
+.btn-ghost svg,.proj-back a svg{flex:0 0 auto}
+
+/* ---------- RESPONSIVE ----------
+   Buttons stay content-width; only the box tightens on small screens. */
+@media (max-width:640px){
+  .btn-primary,.pf-cta-btn{min-height:48px;padding:14px 22px}
+  .nav .cta-btn{min-height:38px;padding:10px 16px}
+}

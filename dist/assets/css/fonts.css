@@ -1,0 +1,23 @@
+/* ============================================================
+   StandPoint — self-hosted webfonts
+   One shared declaration set for the whole site. Family names and
+   weights match what the CSS already asks for, so nothing renders
+   differently; only the source of the files changed.
+   Files + licences: assets/fonts/ (see README.txt there).
+   ============================================================ */
+
+/* Manrope — headings, numbers, display type (--serif) */
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/Manrope-Regular.ttf') format('truetype')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/Manrope-Medium.ttf') format('truetype')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url('../fonts/Manrope-SemiBold.ttf') format('truetype')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url('../fonts/Manrope-Bold.ttf') format('truetype')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;src:url('../fonts/Manrope-ExtraBold.ttf') format('truetype')}
+
+/* Inter — body copy, lists, buttons (--sans) */
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/Inter-Regular.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/Inter-Medium.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('../fonts/Inter-SemiBold.woff2') format('woff2')}
+
+/* JetBrains Mono — eyebrows, labels, meta (--mono) */
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/JetBrainsMono-Regular.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/JetBrainsMono-Medium.woff2') format('woff2')}

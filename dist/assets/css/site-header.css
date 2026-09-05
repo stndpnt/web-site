@@ -1,0 +1,91 @@
+/* ============================================================================
+   STANDPOINT — SHARED SITE HEADER
+   Single source of truth for the complete two-level site header on EVERY
+   public page: the top contact bar + the main header, their typography,
+   sizing and sticky behaviour.
+
+   Values are taken verbatim from the homepage (index.html), which is the
+   visual reference. Nothing here changes on scroll: the whole header stays
+   sticky at full size. Load this file LAST in <head> so it wins over any
+   page-local header rules.
+
+   Used by: index.html, portfolio.html, black-point.html, faq/index.html,
+            assets/css/project-page.css (@import) -> portfolio/<slug>/index.html
+
+   Do not fork these values into a page. Change them here.
+============================================================================ */
+
+:root{--sh-topbar-h:38px;--sh-header-h:104px;
+  /* exact height of the sticky stack: both bars + their 1px bottom borders.
+     Anchors offset by exactly this, so a target section lands flush against
+     the header with no strip of the previous section showing. */
+  --sh-stack-h:calc(var(--sh-topbar-h) + var(--sh-header-h) + 2px);
+  /* Scroll-only nudge: covers the sub-pixel remainder of fractional layout so
+     the target section lands truly flush. Affects the anchor landing position
+     only — never the header's size or position. */
+  --sh-anchor-nudge:-2px}
+
+/* Header colours, pinned to the homepage values so the header reads the same
+   on every page regardless of that page's own surface tokens. Scoped to the
+   two header bars, so page content keeps its own background. */
+.topbar,.header{--header-bg:#0b0b0c}
+.topbar{--header-ink-2:#b8b3a8}
+
+/* ---------- TOP CONTACT BAR (level 1, sticky) ---------- */
+.topbar{position:sticky;top:0;z-index:61;background:var(--header-bg,var(--bg,#0b0b0c));border-bottom:1px solid var(--header-line,var(--line,rgba(255,255,255,.08)));font-family:var(--mono);font-size:11px;font-weight:400;line-height:1.5;letter-spacing:.06em;text-transform:uppercase;color:var(--header-ink-2,var(--ink-2,#b8b3a8))}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;height:var(--sh-topbar-h);padding:0 var(--rail,28px);gap:32px;flex-wrap:nowrap}
+.topbar-left{display:flex;align-items:center;gap:28px}
+.topbar-right{display:flex;align-items:center;gap:24px}
+.topbar a{color:inherit}
+.topbar a:hover{color:var(--accent)}
+.topbar .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;margin-right:8px;vertical-align:middle;box-shadow:0 0 0 0 var(--accent);animation:sh-pulse 2.4s ease-out infinite}
+@keyframes sh-pulse{0%{box-shadow:0 0 0 0 rgba(242,147,17,.55)}70%{box-shadow:0 0 0 8px rgba(242,147,17,0)}100%{box-shadow:0 0 0 0 rgba(242,147,17,0)}}
+@media (prefers-reduced-motion:reduce){.topbar .dot{animation:none}}
+
+/* ---------- MAIN HEADER (level 2, sticky under the bar) ---------- */
+/* No visible bottom separator: content starts flush under the header. The
+   border stays 1px transparent so the sticky stack height (and therefore the
+   anchor offset) is unchanged. The topbar/header divider above is kept. */
+.header{position:sticky;top:var(--sh-topbar-h);z-index:60;background:var(--header-bg,var(--bg,#0b0b0c));border-bottom:1px solid transparent}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:var(--sh-header-h)}
+.logo{display:flex;align-items:center;gap:14px;height:81px}
+.logo img{height:100%;width:auto;display:block}
+.nav{display:flex;align-items:center;gap:36px}
+
+/* Header navigation typography — one declaration for every page. Uses the
+   site's own sans token (Inter, loaded on every page) rather than inheriting
+   each page's body font, so the header cannot drift page to page. The top
+   contact bar keeps its monospace style, as on the homepage. */
+.nav a,.nav a.cta-btn{font-family:var(--sans,'Inter',-apple-system,BlinkMacSystemFont,sans-serif);text-transform:none;line-height:1.5}
+.nav a{font-size:14.5px;font-weight:400;letter-spacing:.01em;transition:color .2s}
+.nav a:not(.cta-btn){color:rgba(235,234,230,.82)}
+.nav a:not(.cta-btn):hover{color:#F29311}
+.nav .cta-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;font-weight:600;font-size:13px;letter-spacing:.02em;border-radius:2px;background:var(--accent);color:var(--accent-ink,#0b0b0c);transition:background .2s,transform .2s}
+.nav .cta-btn:hover{background:var(--accent-2);color:var(--accent-ink,#0b0b0c)}
+.nav .cta-btn .arrow{transition:transform .2s}
+.nav .cta-btn:hover .arrow{transform:translateX(3px)}
+
+/* No persistent current-page highlight: the active item looks like the others.
+   :not(:hover) keeps each page's orange hover rule in charge on hover. */
+.nav a.is-active:not(.cta-btn):not(:hover),
+.nav a.active:not(.cta-btn):not(:hover),
+.nav a.current:not(.cta-btn):not(:hover),
+.nav a.current-page:not(.cta-btn):not(:hover),
+.nav a[aria-current]:not(.cta-btn):not(:hover){color:var(--header-ink-2,rgba(235,234,230,.82))}
+
+/* In-page anchors must not land underneath the sticky header. */
+html{scroll-padding-top:calc(var(--sh-stack-h) + var(--sh-anchor-nudge))}
+
+/* Mobile — homepage behaviour is the reference here too: the existing compact
+   mobile header stays sticky at its normal size; nav/menu behaviour untouched. */
+@media (max-width:640px){
+  :root{--sh-header-h:84px}
+  .nav{gap:20px}
+  .nav .hide-sm{display:none}
+  .logo{height:50px}
+  .topbar-left .hide-sm,.topbar-right .hide-sm{display:none}
+}
+
+@media print{
+  .topbar,.header{position:static}
+}
