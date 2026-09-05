@@ -28,7 +28,8 @@ const STATIC_PAGES = [
   { loc: "/", priority: "1.0", changefreq: "weekly" },
   { loc: "/portfolio.html", priority: "0.9", changefreq: "weekly" },
   { loc: "/black-point.html", priority: "0.8", changefreq: "monthly" },
-  { loc: "/faq/", priority: "0.6", changefreq: "monthly" }
+  { loc: "/faq/", priority: "0.6", changefreq: "monthly" },
+  { loc: "/privacy-policy.html", priority: "0.3", changefreq: "yearly" }
 ];
 
 function loadProjects() {

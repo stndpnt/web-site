@@ -1,0 +1,25 @@
+/* ============================================================================
+   STANDPOINT — COOKIE CONSENT BANNER
+   Shared by every public page. Uses the site's existing theme tokens only —
+   no new colours, no new fonts.
+============================================================================ */
+
+.cc-bar{position:fixed;left:0;right:0;bottom:0;z-index:1200;background:var(--bg-2,#121214);border-top:1px solid var(--line,rgba(255,255,255,.08));box-shadow:0 -12px 32px rgba(0,0,0,.35);transform:translateY(110%);transition:transform .28s ease;will-change:transform}
+.cc-bar.is-open{transform:translateY(0)}
+.cc-inner{width:100%;max-width:var(--maxw,1440px);margin:0 auto;padding:16px var(--rail,28px);display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.cc-text{flex:1 1 380px;min-width:260px;font-family:var(--sans,sans-serif);font-size:14px;line-height:1.5;color:var(--ink-2,#b8b3a8);margin:0}
+.cc-text a{color:var(--ink,#f3f0ea);border-bottom:1px solid var(--line-2,rgba(255,255,255,.14))}
+.cc-text a:hover{color:var(--accent,#F29311);border-color:var(--accent,#F29311)}
+.cc-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.cc-btn{appearance:none;cursor:pointer;font-family:var(--mono,monospace);font-size:11px;letter-spacing:.10em;text-transform:uppercase;padding:11px 18px;border-radius:2px;transition:background .2s,border-color .2s,color .2s}
+.cc-accept{background:var(--accent,#F29311);border:1px solid var(--accent,#F29311);color:var(--accent-ink,#0b0b0c);font-weight:500}
+.cc-accept:hover{background:var(--accent-2,#f5b033);border-color:var(--accent-2,#f5b033)}
+.cc-reject{background:transparent;border:1px solid var(--line-2,rgba(255,255,255,.14));color:var(--ink-2,#b8b3a8)}
+.cc-reject:hover{color:var(--ink,#f3f0ea);border-color:var(--ink-2,#b8b3a8)}
+
+@media (max-width:640px){
+  .cc-inner{padding:14px var(--rail,20px);gap:14px}
+  .cc-text{flex:1 1 100%;font-size:13.5px}
+  .cc-actions{width:100%}
+  .cc-btn{flex:1 1 auto;text-align:center}
+}

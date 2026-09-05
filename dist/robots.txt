@@ -1,0 +1,17 @@
+# StandPoint — production robots.txt
+# Replace PRODUCTION-DOMAIN in the Sitemap line with the real domain at deploy time.
+
+User-agent: *
+Allow: /
+
+# Working files that are not part of the public site. These should not be
+# uploaded to the web root at all; the rules are a safety net only.
+Disallow: /scraps/
+Disallow: /screenshots/
+Disallow: /uploads/
+Disallow: /templates/
+Disallow: /scripts/
+Disallow: /index-print.html
+Disallow: /index-standalone-src.html
+
+Sitemap: https://PRODUCTION-DOMAIN/sitemap.xml

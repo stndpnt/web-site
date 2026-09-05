@@ -38,6 +38,7 @@ const INCLUDE = [
   "index.html",          /* home */
   "portfolio.html",      /* portfolio listing */
   "black-point.html",    /* group stands */
+  "privacy-policy.html", /* privacy policy */
   "faq",                 /* faq/index.html */
   "portfolio",             /* generated project pages, one per project */
   "assets",              /* css, js, images, video, logos, favicons */

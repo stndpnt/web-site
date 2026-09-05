@@ -163,6 +163,9 @@ function buildFields(p) {
     OG_IMAGE: OG_ORIGIN + "/" + folder + "/01." + extOf(p),
     CRUMB: esc(title),
     TAG: isGroup ? "Group Stand Construction" : "Custom Exhibition Stand",
+    /* Bottom back link returns to the matching portfolio filter (portfolio.html#filter=…). */
+    BACK_FILTER: isGroup ? "group" : "custom",
+    BACK_LABEL: isGroup ? "Group Stands" : "Custom Stands",
     H1: esc(title),
     DESCRIPTION_BLOCK: intro
       ? '<section class="proj-intro"><div class="wrap"><div class="proj-desc">' +

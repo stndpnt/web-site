@@ -71,10 +71,10 @@ Not deleted — confirm first:
    `Sitemap:` line in `robots.txt` use `https://PRODUCTION-DOMAIN`. Replace it
    site-wide, or regenerate the sitemap with
    `node scripts/generate-sitemap.js --origin https://your-domain.com`.
-2. **Missing brochure PDFs.** `index.html` links `assets/custom-stands-brochure.pdf`
-   and `black-point.html` links `assets/black-point-brochure.pdf`. Neither file
-   exists in `assets/` — these download links are currently broken. (Two other
-   "Download the brochure" buttons point at `#`.)
+2. ~~Missing brochure PDFs.~~ **Done.** Both presentations live in
+   `assets/downloads/`: `StandPoint Presentation.pdf` (Custom Stands — linked from
+   `index.html` and `portfolio.html`) and `BlackPoint Group Build.pdf` (Group Stands —
+   linked from both CTAs on `black-point.html`). No brochure link points at `#`.
 3. ~~Tweaks panel on live pages.~~ **Done.** The React + ReactDOM + Babel +
    `tweaks-panel.jsx` block and `#tweaks-root` were removed from `index.html`,
    `portfolio.html` and `black-point.html`. Its only production-relevant effect,
