@@ -1,5 +1,5 @@
 # StandPoint — production robots.txt
-# Replace PRODUCTION-DOMAIN in the Sitemap line with the real domain at deploy time.
+# Replace standpointeurope.com in the Sitemap line with the real domain at deploy time.
 
 User-agent: *
 Allow: /
@@ -14,4 +14,4 @@ Disallow: /scripts/
 Disallow: /index-print.html
 Disallow: /index-standalone-src.html
 
-Sitemap: https://PRODUCTION-DOMAIN/sitemap.xml
+Sitemap: https://standpointeurope.com/sitemap.xml

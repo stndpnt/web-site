@@ -29,7 +29,7 @@ const TEMPLATE_FILE = path.join(ROOT, "templates", "portfolio-project.html");
 const OUT_ROOT = path.join(ROOT, "portfolio");
 /* Absolute Open Graph URLs are required by Facebook/LinkedIn/Slack. Replace this
    placeholder with the real domain at deploy time (same token as sitemap.xml). */
-const OG_ORIGIN = "https://PRODUCTION-DOMAIN";
+const OG_ORIGIN = "https://standpointeurope.com";
 
 /* ---------------------------------------------------------------- data load */
 /* portfolio-data.js is a browser script (no module system). We evaluate it with

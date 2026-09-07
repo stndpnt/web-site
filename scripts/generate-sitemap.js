@@ -21,7 +21,7 @@ const path = require("path");
 const ROOT = path.resolve(__dirname, "..");
 const DATA_FILE = path.join(ROOT, "assets", "js", "portfolio-data.js");
 const OUT_FILE = path.join(ROOT, "sitemap.xml");
-const DEFAULT_ORIGIN = "https://PRODUCTION-DOMAIN";
+const DEFAULT_ORIGIN = "https://standpointeurope.com";
 
 /* Static public pages. Add a new top-level page here when one is created. */
 const STATIC_PAGES = [
