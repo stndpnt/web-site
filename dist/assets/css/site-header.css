@@ -65,13 +65,43 @@
 .nav .cta-btn .arrow{transition:transform .2s}
 .nav .cta-btn:hover .arrow{transform:translateX(3px)}
 
-/* No persistent current-page highlight: the active item looks like the others.
-   :not(:hover) keeps each page's orange hover rule in charge on hover. */
-.nav a.is-active:not(.cta-btn):not(:hover),
-.nav a.active:not(.cta-btn):not(:hover),
-.nav a.current:not(.cta-btn):not(:hover),
-.nav a.current-page:not(.cta-btn):not(:hover),
-.nav a[aria-current]:not(.cta-btn):not(:hover){color:var(--header-ink-2,rgba(235,234,230,.82))}
+/* Current page: the active nav item carries the same orange as the hover
+   state. Colour only — size, weight, spacing and position are untouched. */
+.nav a[aria-current="page"]:not(.cta-btn){color:#F29311}
+
+/* ---------- MOBILE NAV (hamburger + panel under the header) ---------- */
+/* Markup is built at runtime by assets/js/site-nav.js from the header's own
+   nav links, so every page gets the same menu (and the same aria-current)
+   without any page-local copy. Desktop is unaffected: the toggle and the panel
+   are hidden above the breakpoint. */
+.nav-toggle{display:none;flex:none;width:44px;height:44px;padding:0;margin-left:4px;align-items:center;justify-content:center;background:none;border:0;color:rgba(235,234,230,.82);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.nav-toggle-bars{position:relative;display:block;width:20px;height:14px}
+.nav-toggle-bars i{position:absolute;left:0;width:100%;height:1.5px;background:currentColor;transition:transform .2s,opacity .2s}
+.nav-toggle-bars i:nth-child(1){top:0}
+.nav-toggle-bars i:nth-child(2){top:6.25px}
+.nav-toggle-bars i:nth-child(3){top:12.5px}
+.nav-toggle[aria-expanded="true"]{color:#F29311}
+.nav-toggle[aria-expanded="true"] i:nth-child(1){transform:translateY(6.25px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] i:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] i:nth-child(3){transform:translateY(-6.25px) rotate(-45deg)}
+#mobile-nav{display:none;position:absolute;top:100%;left:0;right:0;z-index:59;background:var(--header-bg,#0b0b0c);border-top:1px solid var(--header-line,rgba(255,255,255,.08));border-bottom:1px solid var(--header-line,rgba(255,255,255,.08));padding:6px var(--rail,28px) 14px}
+#mobile-nav.is-open{display:block}
+#mobile-nav a{display:block;padding:14px 0;font-family:var(--sans,'Inter',-apple-system,BlinkMacSystemFont,sans-serif);font-size:15px;font-weight:400;letter-spacing:.01em;line-height:1.5;text-transform:none;color:rgba(235,234,230,.82);border-bottom:1px solid rgba(255,255,255,.06);transition:color .2s}
+#mobile-nav a:last-child{border-bottom:0}
+#mobile-nav a[aria-current="page"]{color:#F29311}
+#mobile-nav a:hover,#mobile-nav a:focus-visible{color:#F29311}
+#mobile-nav a.mnav-cta{margin-top:12px;padding:14px 20px;border:0;font-weight:600;font-size:13px;letter-spacing:.02em;border-radius:2px;background:var(--accent,#F29311);color:var(--accent-ink,#0b0b0c);text-align:center}
+#mobile-nav a.mnav-cta:hover,#mobile-nav a.mnav-cta:focus-visible{background:var(--accent-2,#f5b033);color:var(--accent-ink,#0b0b0c)}
+
+@media (max-width:1024px){
+  .nav-toggle{display:inline-flex}
+  .nav a.hide-sm{display:none}
+}
+/* Below this width the header CTA lives in the panel only, so the logo and the
+   toggle keep their normal size instead of competing for the same row. */
+@media (max-width:560px){
+  .nav .cta-btn{display:none}
+}
 
 /* In-page anchors must not land underneath the sticky header. */
 html{scroll-padding-top:calc(var(--sh-stack-h) + var(--sh-anchor-nudge))}

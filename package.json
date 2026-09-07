@@ -12,6 +12,7 @@
     "portfolio:folders:check": "node scripts/prepare-portfolio-folders.js --check",
     "sitemap": "node scripts/generate-sitemap.js",
     "build": "node scripts/build-production.js",
-    "build:check": "node scripts/build-production.js --check"
+    "build:check": "node scripts/build-production.js --check",
+    "faq:schema": "node scripts/generate-faq-schema.js"
   }
 }

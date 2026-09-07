@@ -10,7 +10,12 @@
    Do not fork these values into a page. Change them here.
 ============================================================================ */
 
-footer{background:var(--bg);border-top:1px solid var(--line);padding:40px 0 24px}
+/* Footer surface + ink pinned to the homepage values, scoped to the footer, so
+   the footer reads identically on every page regardless of that page's own
+   surface tokens (FAQ, Group Stands themes, project pages). Page content keeps
+   its own tokens. */
+footer{--footer-bg:#0b0b0c;--footer-line:rgba(255,255,255,.08);--ink-2:#b8b3a8;--ink-3:#6f6a60}
+footer{background:var(--footer-bg);border-top:1px solid var(--footer-line);padding:40px 0 24px}
 .footer-inner{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;align-items:start;gap:32px;font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:.10em;line-height:1.7;text-transform:uppercase;color:var(--ink-3)}
 .footer-inner a{color:inherit}
 .footer-inner a:hover{color:var(--accent)}
