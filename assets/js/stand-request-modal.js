@@ -2,10 +2,10 @@
    Trigger any element with [data-open-stand-form] to open it.
 
    ===== SUBMISSION CONFIG =====
-   Insert the real Formspree endpoint below (e.g. "https://formspree.io/f/xxxxxxxx").
-   Until this is set, the form will show a friendly error instead of faking success. */
+   Configured for Forminit (forminit.com).
+*/
 (function () {
-  var FORMSPREE_ENDPOINT = ''; // <-- put your Formspree form endpoint URL here
+  var FORMINIT_ENDPOINT = 'https://forminit.com/f/hzubmi1o9wa';
 
   var CSS = `
   .srm-overlay{position:fixed;inset:0;background:rgba(11,11,12,.55);z-index:9998;opacity:0;pointer-events:none;transition:opacity .22s ease;display:flex;align-items:flex-start;justify-content:center;padding:5vh 20px;overflow-y:auto}
@@ -111,7 +111,7 @@
             '</div>' +
             '<div class="srm-hp" aria-hidden="true">' +
               '<label for="srm-hp-field">Leave this field empty</label>' +
-              '<input type="text" id="srm-hp-field" name="_gotcha" tabindex="-1" autocomplete="off" />' +
+              '<input type="text" id="srm-hp-field" name="fi-text-gotcha" tabindex="-1" autocomplete="off" />' +
             '</div>' +
             '<div class="srm-submit-row">' +
               '<button type="submit" class="srm-submit">Send Request</button>' +
@@ -198,15 +198,13 @@
     return ok;
   }
 
-  // Submits via Formspree (https://formspree.io). Set FORMSPREE_ENDPOINT above before going live.
+  // Submits via Forminit (https://forminit.com)
   function submitStandRequest(formData) {
-    if (!FORMSPREE_ENDPOINT) {
-      return Promise.reject(new Error('Formspree endpoint not configured'));
-    }
-    return fetch(FORMSPREE_ENDPOINT, {
+    return fetch(FORMINIT_ENDPOINT, {
       method: 'POST',
       body: formData,
       headers: { Accept: 'application/json' }
+      // Note: Do NOT set Content-Type manually. Fetch will automatically set it to multipart/form-data with the correct boundary.
     }).then(function (res) {
       if (!res.ok) throw new Error('Submission failed');
       return res.json().catch(function () { return {}; });
@@ -220,24 +218,28 @@
     var company = document.getElementById('srm-company').value.trim();
     var email = document.getElementById('srm-email').value.trim();
     var exhibition = document.getElementById('srm-exhibition').value.trim();
-    fd.append('First Name', first);
-    fd.append('Last Name', last);
-    fd.append('Company', company);
-    fd.append('Work Email', email);
-    fd.append('Phone / WhatsApp', document.getElementById('srm-phone').value.trim());
-    fd.append('Exhibition', exhibition);
-    fd.append('City / Venue', document.getElementById('srm-venue').value.trim());
-    fd.append('Exhibition Start Date', document.getElementById('srm-date-start').value);
-    fd.append('Exhibition End Date', document.getElementById('srm-date-end').value);
-    fd.append('Stand Size (m²)', document.getElementById('srm-size').value.trim());
-    fd.append('Budget', document.getElementById('srm-budget').value);
-    fd.append('Project Type', (document.querySelector('input[name="srm-type"]:checked') || {}).value || '');
-    fd.append('Project Description', document.getElementById('srm-notes').value.trim());
-    fd.append('_gotcha', document.getElementById('srm-hp-field').value);
-    fd.append('_subject', 'New website request — ' + (company || 'Unknown company') + ' — ' + (exhibition || 'Unknown exhibition'));
-    fd.append('_replyto', email);
+
+    // UPDATED: Forminit strict key requirements fi-{blockType}-{name}
+    fd.append('fi-text-firstName', first);
+    fd.append('fi-text-lastName', last);
+    fd.append('fi-text-company', company);
+    fd.append('fi-email-workEmail', email);
+    fd.append('fi-tel-phone', document.getElementById('srm-phone').value.trim());
+    fd.append('fi-text-exhibition', exhibition);
+    fd.append('fi-text-venue', document.getElementById('srm-venue').value.trim());
+    fd.append('fi-text-startDate', document.getElementById('srm-date-start').value);
+    fd.append('fi-text-endDate', document.getElementById('srm-date-end').value);
+    fd.append('fi-text-standSize', document.getElementById('srm-size').value.trim());
+    fd.append('fi-text-budget', document.getElementById('srm-budget').value);
+    fd.append('fi-text-projectType', (document.querySelector('input[name="srm-type"]:checked') || {}).value || '');
+    fd.append('fi-text-notes', document.getElementById('srm-notes').value.trim());
+
+    // Append files individually using the required prefix
     var files = document.getElementById('srm-files').files;
-    for (var i = 0; i < files.length; i++) fd.append('attachments[]', files[i], files[i].name);
+    for (var i = 0; i < files.length; i++) {
+        fd.append('fi-file-attachments', files[i], files[i].name);
+    }
+
     return fd;
   }
 
@@ -255,6 +257,7 @@
     errEl.classList.remove('show');
     btn.disabled = true;
     btn.textContent = 'Sending…';
+
     submitStandRequest(buildFormData()).then(function () {
       submitting = false;
       var body = overlay.querySelector('.srm-body');
