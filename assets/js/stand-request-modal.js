@@ -2,10 +2,20 @@
    Trigger any element with [data-open-stand-form] to open it.
 
    ===== SUBMISSION CONFIG =====
-   Configured for Forminit (forminit.com).
+   Configured for Tectite FormMail (formmail.php).
+
+   Server-side requirements on forms.standpointeurope.com:
+   - $TARGET_EMAIL / $EMAIL_ADDRS in formmail.php must allow the recipient below
+   - define("FILEUPLOADS", true) in formmail.php for attachments
+   - ok.php uploaded next to formmail.php (used to detect success)
+   - Access-Control-Allow-Origin header matching this site's exact origin
 */
 (function () {
-  var FORMINIT_ENDPOINT = 'https://forminit.com/f/hzubmi1o9wa';
+  var FORMMAIL_ENDPOINT = 'https://forms.standpointeurope.com/formmail.php';
+  // FormMail redirects here only when the email was accepted.
+  var FORMMAIL_OK_URL = 'https://forms.standpointeurope.com/ok.php';
+  // Alias defined in $EMAIL_ADDRS in formmail.php (keeps the real address out of the page).
+  var FORMMAIL_RECIPIENT = 'contact';
 
   var CSS = `
   .srm-overlay{position:fixed;inset:0;background:rgba(11,11,12,.55);z-index:9998;opacity:0;pointer-events:none;transition:opacity .22s ease;display:flex;align-items:flex-start;justify-content:center;padding:5vh 20px;overflow-y:auto}
@@ -111,7 +121,7 @@
             '</div>' +
             '<div class="srm-hp" aria-hidden="true">' +
               '<label for="srm-hp-field">Leave this field empty</label>' +
-              '<input type="text" id="srm-hp-field" name="fi-text-gotcha" tabindex="-1" autocomplete="off" />' +
+              '<input type="text" id="srm-hp-field" name="website" tabindex="-1" autocomplete="off" />' +
             '</div>' +
             '<div class="srm-submit-row">' +
               '<button type="submit" class="srm-submit">Send Request</button>' +
@@ -198,46 +208,72 @@
     return ok;
   }
 
-  // Submits via Forminit (https://forminit.com)
+  // Submits via Tectite FormMail.
+  // FormMail answers with an HTML page, not JSON. On success it redirects to
+  // good_url, so we treat "ended up at ok.php" as success and anything else
+  // (its error page, a network or CORS failure) as an error.
   function submitStandRequest(formData) {
-    return fetch(FORMINIT_ENDPOINT, {
+    return fetch(FORMMAIL_ENDPOINT, {
       method: 'POST',
-      body: formData,
-      headers: { Accept: 'application/json' }
+      body: formData
       // Note: Do NOT set Content-Type manually. Fetch will automatically set it to multipart/form-data with the correct boundary.
     }).then(function (res) {
-      if (!res.ok) throw new Error('Submission failed');
-      return res.json().catch(function () { return {}; });
+      if (!res.ok || res.url.indexOf(FORMMAIL_OK_URL) !== 0) {
+        throw new Error('Submission failed');
+      }
     });
+  }
+
+  function val(id) {
+    return document.getElementById(id).value.trim();
   }
 
   function buildFormData() {
     var fd = new FormData();
-    var first = document.getElementById('srm-first').value.trim();
-    var last = document.getElementById('srm-last').value.trim();
-    var company = document.getElementById('srm-company').value.trim();
-    var email = document.getElementById('srm-email').value.trim();
-    var exhibition = document.getElementById('srm-exhibition').value.trim();
+    var first = val('srm-first');
+    var last = val('srm-last');
+    var company = val('srm-company');
+    var email = val('srm-email');
+    var exhibition = val('srm-exhibition');
 
-    // UPDATED: Forminit strict key requirements fi-{blockType}-{name}
-    fd.append('fi-text-firstName', first);
-    fd.append('fi-text-lastName', last);
-    fd.append('fi-text-company', company);
-    fd.append('fi-email-workEmail', email);
-    fd.append('fi-tel-phone', document.getElementById('srm-phone').value.trim());
-    fd.append('fi-text-exhibition', exhibition);
-    fd.append('fi-text-venue', document.getElementById('srm-venue').value.trim());
-    fd.append('fi-text-startDate', document.getElementById('srm-date-start').value);
-    fd.append('fi-text-endDate', document.getElementById('srm-date-end').value);
-    fd.append('fi-text-standSize', document.getElementById('srm-size').value.trim());
-    fd.append('fi-text-budget', document.getElementById('srm-budget').value);
-    fd.append('fi-text-projectType', (document.querySelector('input[name="srm-type"]:checked') || {}).value || '');
-    fd.append('fi-text-notes', document.getElementById('srm-notes').value.trim());
+    // ----- FormMail control fields -----
+    fd.append('recipients', FORMMAIL_RECIPIENT);
+    fd.append('subject', 'Stand proposal request: ' + company + ' / ' + exhibition);
+    fd.append('required', 'realname:First name,email:Work email,Company,Exhibition');
+    fd.append('good_url', FORMMAIL_OK_URL);
+    fd.append('mail_options', 'CharSet=UTF-8,FromAddr=forms@forms.standpointeurope.com'); // keeps € and – readable in the email
 
-    // Append files individually using the required prefix
+    // Reverse CAPTCHA: must match $ATTACK_DETECTION_REVERSE_CAPTCHA in formmail.php
+    fd.append('form_ref', 'o9clk');
+    fd.append('reservation', document.getElementById('srm-hp-field').value);
+
+    // Special fields: FormMail uses these for the sender name and reply address.
+    fd.append('realname', (first + ' ' + last).trim());
+    fd.append('email', email);
+    fd.append('replyto', email);   // Reply goes to the visitor
+
+    // ----- Form data (field names become the labels in the email) -----
+    // No spaces or dots in names: PHP would convert them to underscores anyway.
+    fd.append('First_name', first);
+    fd.append('Last_name', last);
+    fd.append('Company', company);
+    fd.append('Work_email', email);
+    fd.append('Phone', val('srm-phone'));
+    fd.append('Exhibition', exhibition);
+    fd.append('Venue', val('srm-venue'));
+    fd.append('Start_date', val('srm-date-start'));
+    fd.append('End_date', val('srm-date-end'));
+    fd.append('Stand_size', val('srm-size'));
+    fd.append('Budget', val('srm-budget'));
+    fd.append('Project_type', (document.querySelector('input[name="srm-type"]:checked') || {}).value || '');
+    fd.append('Notes', val('srm-notes'));
+
+
+
+    // Attachments: FormMail wants a separate field name per file (file1, file2, ...).
     var files = document.getElementById('srm-files').files;
     for (var i = 0; i < files.length; i++) {
-        fd.append('fi-file-attachments', files[i], files[i].name);
+      fd.append('file' + (i + 1), files[i], files[i].name);
     }
 
     return fd;
