@@ -238,7 +238,7 @@
 
     // ----- FormMail control fields -----
     fd.append('recipients', FORMMAIL_RECIPIENT);
-    fd.append('subject', 'Stand proposal request: ' + company + ' / ' + exhibition);
+    fd.append('subject', 'Контактна форма: ' + company + ' / ' + exhibition);
     fd.append('required', 'realname:First name,email:Work email,Company,Exhibition');
     fd.append('good_url', FORMMAIL_OK_URL);
     fd.append('mail_options', 'CharSet=UTF-8,FromAddr=forms@forms.standpointeurope.com'); // keeps € and – readable in the email
